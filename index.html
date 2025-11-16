@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-lang>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WeSleep - Wake up refreshed with our smart alarm technology that finds your perfect waking moment" data-i18n="metaDescription">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title data-i18n="pageTitle">WeSleep | Smart Alarm for Perfect Mornings</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">WeSleep</div>
+                <div class="nav-links">
+                    <a href="#features" data-i18n="features">Features</a>
+                    <a href="#how-it-works" data-i18n="howItWorks">How It Works</a>
+                    <a href="#testimonials" data-i18n="testimonials">Testimonials</a>
+                    <div class="language-selector">
+                        <button class="language-btn" aria-haspopup="true" aria-expanded="false">
+                            <span class="selected-language">EN</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-dropdown" role="menu">
+                            <li><button class="language-option" data-lang="ca" data-i18n="catalan">Català</button></li>
+                            <li><button class="language-option" data-lang="en" data-i18n="english">English</button></li>
+                            <li><button class="language-option" data-lang="es" data-i18n="spanish">Español</button></li>
+                        </ul>
+                    </div>
+                    <a href="#download" class="btn btn-primary" data-i18n="downloadApp">Download App</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 data-i18n="heroTitle">Wake Up Refreshed,<br>Every Morning</h1>
+                    <p class="lead" data-i18n="heroSubtitle">WeSleep's smart alarm technology wakes you up at the perfect moment within your chosen time window, ensuring you feel refreshed and energized.</p>
+                    <div class="cta-buttons">
+                        <a href="#download" class="btn btn-primary" data-i18n="downloadNow">Download Now</a>
+                        <a href="#how-it-works" class="btn btn-secondary" data-i18n="howItWorksBtn">How It Works <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <div class="phone-mockup-content">
+                            <img 
+                                src="assets/images/app-preview.webp" 
+                                alt="WeSleep App Preview" 
+                                class="phone-img"
+                                onerror="this.onerror=null; this.src='https://via.placeholder.com/300x600/1a1a2e/6d8cff?text=WeSleep+App'; this.style.border='2px solid red'"
+                                style="max-width: 100%; height: auto; display: block; margin: 0 auto;"
+                            >
+                        </div>
+                        <style>
+                            .phone-mockup {
+                                background: transparent;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                padding: 20px 0;
+                            }
+                            .phone-mockup-content {
+                                position: relative;
+                                display: inline-block;
+                                max-width: 100%;
+                                line-height: 0; /* Removes extra space below image */
+                            }
+                            .phone-img {
+                                display: block;
+                                width: 300px; /* Fixed size, adjust as needed */
+                                height: auto;
+                                border: 2px solid #6d8cff;
+                                border-radius: 30px;
+                                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                            }
+                            .image-note {
+                                color: #a0a0c0;
+                                font-size: 14px;
+                                margin: 0;
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2 data-i18n="sleepSmarter">Sleep Smarter with WeSleep</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-moon"></i></div>
+                        <h3 data-i18n="smartWakeUp">Smart Wake-Up</h3>
+                        <p data-i18n="smartWakeUpDesc">Wakes you up at the optimal time within your chosen window when you're in light sleep.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 data-i18n="sleepAnalysis">Sleep Analysis</h3>
+                        <p data-i18n="sleepAnalysisDesc">Detailed insights into your sleep patterns with daily, weekly, and monthly reports.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                        <h3 data-i18n="aiPowered">AI-Powered</h3>
+                        <p data-i18n="aiPoweredDesc">Advanced algorithms learn your sleep patterns to improve accuracy over time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 data-i18n="howItWorksTitle">How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 data-i18n="setYourWindow">Set Your Window</h3>
+                            <p data-i18n="setYourWindowDesc">Choose your preferred wake-up window (e.g., 6:30 AM - 7:00 AM).</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 data-i18n="sleepNaturally">Sleep Naturally</h3>
+                            <p data-i18n="sleepNaturallyDesc">Go to bed as usual. Our technology works while you sleep.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 data-i18n="wakeUpRefreshed">Wake Up Refreshed</h3>
+                            <p data-i18n="wakeUpRefreshedDesc">We'll wake you at the optimal time within your window when you're in light sleep.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 data-i18n="whatUsersSay">What Our Users Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p data-i18n="testimonial1">"Game changer! I wake up feeling refreshed instead of groggy. The smart alarm makes all the difference."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah M.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah M.</h4>
+                                    <p data-i18n="testimonial1Role">Marketing Executive</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p data-i18n="testimonial2">"I was skeptical at first, but the difference in how I feel in the mornings is incredible. Highly recommend!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James T.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>James T.</h4>
+                                    <p data-i18n="testimonial2Role">Software Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="cta">
+            <div class="container">
+                <h2 data-i18n="readyToTransform">Ready to Transform Your Mornings?</h2>
+                <p data-i18n="downloadToday">Download WeSleep today and wake up feeling refreshed and energized every morning.</p>
+                <div class="download-buttons">
+                    <a href="#" class="app-store-btn">
+                        <i class="fab fa-apple"></i>
+                        <div>
+                            <span data-i18n="downloadOn">Download on the</span>
+                            <strong data-i18n="appStore">App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="google-play-btn">
+                        <i class="fab fa-google-play"></i>
+                        <div>
+                            <span data-i18n="getItOn">Get it on</span>
+                            <strong data-i18n="googlePlay">Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">WeSleep</div>
+                    <p data-i18n="footerTagline">Helping you achieve better sleep and more productive mornings.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="product">Product</h4>
+                        <a href="#" data-i18n="features">Features</a>
+                        <a href="#" data-i18n="pricing">Pricing</a>
+                        <a href="#" data-i18n="download">Download</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="company">Company</h4>
+                        <a href="#" data-i18n="aboutUs">About Us</a>
+                        <a href="#" data-i18n="careers">Careers</a>
+                        <a href="#" data-i18n="contact">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-i18n="legal">Legal</h4>
+                        <a href="#" data-i18n="privacyPolicy">Privacy Policy</a>
+                        <a href="#" data-i18n="termsOfService">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="copyright">&copy; 2025 WeSleep. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
