@@ -6,8 +6,8 @@ const translations = {
         howItWorks: 'How It Works',
         howItWorksBtn: 'How It Works',
         testimonials: 'Testimonials',
-        downloadApp: 'Download App',
-        downloadNow: 'Download Now',
+        downloadApp: 'Coming Soon',
+        downloadNow: 'Coming Soon',
         english: 'English',
         spanish: 'Spanish',
         catalan: 'Catalan',
@@ -45,6 +45,28 @@ const translations = {
         testimonial2: '\'I was skeptical at first, but the difference in how I feel in the mornings is incredible. Highly recommend!\'',
         testimonial2Role: 'Software Developer',
         
+        // Contact Section
+        contactUs: 'Contact Us',
+        contactSubtitle: 'We\'re here to help and answer any questions you might have',
+        emailUs: 'Email Us',
+        callUs: 'Call Us',
+        
+        // FAQ Section
+        faqTitle: 'Frequently Asked Questions',
+        faqSubtitle: 'Find answers to common questions about WeSleep',
+        faq1Question: 'How does WeSleep track my sleep?',
+        faq1Answer: 'WeSleep analyzes your wearable data with a proprietary sleep algorithm, created in-house, capable of interpreting physiological patterns with high accuracy. In addition, our pre-trained AI model estimates the best time to wake you up within an intelligent window. The entire process is automatic, secure and designed to improve your quality of rest night after night.',
+        faq2Question: 'Is WeSleep free to use?',
+        faq2Answer: 'Yes! WeSleep offers a free version with all the essential features for better sleep tracking and smart alarms. We also offer a premium subscription with advanced features like detailed sleep analysis, personalized recommendations, and integration with other health apps.',
+        faq3Question: 'Does WeSleep drain my phone\'s battery?',
+        faq3Answer: 'We\'ve optimized WeSleep to use minimal battery power during sleep tracking. On average, the app uses less than 5% of your battery per night. For best results, we recommend keeping your phone plugged in while you sleep.',
+        faq4Question: 'Can I use WeSleep with my smartwatch?',
+        faq4Answer: 'Yes! WeSleep is compatible with most major smartwatches including Apple Watch, Wear OS, and Garmin devices. Syncing your watch allows for even more accurate sleep tracking and additional health metrics.',
+        faq5Question: 'How does the smart alarm work?',
+        faq5Answer: 'The smart alarm monitors your sleep cycles and wakes you up during light sleep within a 30-minute window before your set alarm time. This helps you avoid waking up during deep sleep, which can leave you feeling groggy.',
+        faqCta: 'Still have questions?',
+        contactSupport: 'Contact our support team',
+        
         // CTA Section
         readyToTransform: 'Ready to Transform Your Mornings?',
         downloadToday: 'Download WeSleep today and wake up feeling refreshed and energized every morning.',
@@ -73,8 +95,8 @@ const translations = {
         howItWorks: 'Cómo Funciona',
         howItWorksBtn: 'Cómo Funciona',
         testimonials: 'Testimonios',
-        downloadApp: 'Descargar App',
-        downloadNow: 'Descargar Ahora',
+        downloadApp: 'Próximamente',
+        downloadNow: 'Próximamente',
         english: 'Inglés',
         spanish: 'Español',
         catalan: 'Catalán',
@@ -106,11 +128,33 @@ const translations = {
         wakeUpRefreshedDesc: 'Te despertaremos en el momento óptimo dentro de tu ventana cuando estés en sueño ligero.',
         
         // Testimonials
-        whatUsersSay: 'Lo que Dicen Nuestros Usuarios',
+        whatUsersSay: 'Lo que dicen nuestros usuarios',
         testimonial1: '\'¡Un cambio radical! Me despierto renovado en lugar de aturdido. La alarma inteligente marca la diferencia.\'',
         testimonial1Role: 'Ejecutiva de Marketing',
         testimonial2: '\'Al principio era escéptico, pero la diferencia en cómo me siento por las mañanas es increíble. ¡Muy recomendable!\'',
         testimonial2Role: 'Desarrollador de Software',
+        
+        // Contact Section
+        contactUs: 'Contáctanos',
+        contactSubtitle: 'Estamos aquí para ayudarte y responder cualquier pregunta que tengas',
+        emailUs: 'Envíanos un correo',
+        callUs: 'Llámanos',
+        
+        // FAQ Section
+        faqTitle: 'Preguntas Frecuentes',
+        faqSubtitle: 'Encuentra respuestas a preguntas comunes sobre WeSleep',
+        faq1Question: '¿Cómo hace WeSleep el seguimiento de mi sueño?',
+        faq1Answer: 'WeSleep analiza los datos de tu wearable con un algoritmo de sueño propio, creado in-house, capaz de interpretar patrones fisiológicos con alta precisión. Además nuestro modelo de IA pre-entrenado ama el mejor momento para despertarte dentro de una ventana inteligente. Todo el proceso es automático, seguro y pensado para mejorar tu calidad de descanso noche a noche.',
+        faq2Question: '¿Es WeSleep gratuito?',
+        faq2Answer: '¡Sí! WeSleep ofrece una versión gratuita con todas las funciones esenciales para un mejor seguimiento del sueño y alarmas inteligentes. También ofrecemos una suscripción premium con funciones avanzadas como análisis detallado del sueño, recomendaciones personalizadas e integración con otras aplicaciones de salud.',
+        faq3Question: '¿WeSleep consume mucha batería?',
+        faq3Answer: 'Hemos optimizado WeSleep para que use un mínimo de energía durante el seguimiento del sueño. En promedio, la aplicación usa menos del 5% de la batería por noche. Para obtener los mejores resultados, recomendamos mantener el teléfono enchufado mientras duermes.',
+        faq4Question: '¿Puedo usar WeSleep con mi reloj inteligente?',
+        faq4Answer: '¡Sí! WeSleep es compatible con la mayoría de los relojes inteligentes principales, incluidos Apple Watch, Wear OS y dispositivos Garmin. Sincronizar tu reloj permite un seguimiento del sueño aún más preciso y métricas de salud adicionales.',
+        faq5Question: '¿Cómo funciona la alarma inteligente?',
+        faq5Answer: 'La alarma inteligente monitorea tus ciclos de sueño y te despierta durante el sueño ligero dentro de una ventana de 30 minutos antes de la hora de alarma que hayas establecido. Esto te ayuda a evitar despertarte durante el sueño profundo, lo que puede hacer que te sientas aturdido.',
+        faqCta: '¿Aún tienes preguntas?',
+        contactSupport: 'Contacta a nuestro equipo de soporte',
         
         // CTA Section
         readyToTransform: '¿Listo para Transformar tus Mañanas?',
@@ -140,8 +184,8 @@ const translations = {
         howItWorks: 'Com Funciona',
         howItWorksBtn: 'Com Funciona',
         testimonials: 'Testimonis',
-        downloadApp: 'Descarrega l\'App',
-        downloadNow: 'Descarrega Ara',
+        downloadApp: 'Properament',
+        downloadNow: 'Properament',
         english: 'Anglès',
         spanish: 'Espanyol',
         catalan: 'Català',
@@ -173,11 +217,34 @@ const translations = {
         wakeUpRefreshedDesc: 'Et despertarem en el moment òptim dins de la teva finestra quan estiguis en son lleuger.',
         
         // Testimonials
-        whatUsersSay: 'Què Dien els Nostres Usuaris',
+        whatUsersSay: 'Què diuen els nostres usuaris',
         testimonial1: '\'Un canvi radical! Em desperti descansat en lloc de mig adormit. El despertador intel·ligent marca la diferència.\'',
         testimonial1Role: 'Executiva de Màrqueting',
         testimonial2: '\'Al principi era escèptic, però la diferència en com em sento al matí és increïble. Molt recomanable!\'',
         testimonial2Role: 'Desenvolupador de Software',
+        
+        // FAQ Section
+        faqTitle: 'Preguntes Freqüents',
+        // Contact Section
+        contactUs: 'Contacta\'ns',
+        contactSubtitle: 'Estem aquí per ajudar-te i respondre qualsevol pregunta que tinguis',
+        emailUs: 'Envia\'ns un correu',
+        callUs: 'Truca\'ns',
+        
+        // FAQ Section
+        faqSubtitle: 'Troba respostes a preguntes freqüents sobre WeSleep',
+        faq1Question: 'Com fa WeSleep el seguiment del meu son?',
+        faq1Answer: 'WeSleep analitza les dades del teu wearable amb un algoritme de son propi, creat in-house, capaç d\'interpretar patrons fisiològics amb alta precisió. A més a més el nostre model d\'IA pre-entrenat estima el millor moment per despertar-te dins d\'una finestra intel·ligent. Tot el procés és automàtic, segur i pensat per millorar la teva qualitat de descans nit rere nit.',
+        faq2Question: 'És WeSleep gratuït?',
+        faq2Answer: 'Sí! WeSleep ofereix una versió gratuïta amb totes les funcions essencials per a un millor seguiment del son i despertadors intel·ligents. També oferim una subscripció premium amb funcions avançades com ara anàlisi detallat del son, recomanacions personalitzades i integració amb altres aplicacions de salut.',
+        faq3Question: 'WeSleep consumeix molta bateria?',
+        faq3Answer: 'Hem optimitzat WeSleep perquè utilitzi un mínim d\'energia durant el seguiment del son. De mitjana, l\'aplicació fa servir menys del 5% de la bateria per nit. Per obtenir els millors resultats, recomanem mantenir el telèfic connectat mentre dorms.',
+        faq4Question: 'Puc utilitzar WeSleep amb el meu rellotge intel·ligent?',
+        faq4Answer: 'Sí! WeSleep és compatible amb la majoria dels rellotges intel·ligents principals, inclosos Apple Watch, Wear OS i dispositius Garmin. Sincronitzar el teu rellotge permet un seguiment del son encara més precís i mètriques de salut addicionals.',
+        faq5Question: 'Com funciona el despertador intel·ligent?',
+        faq5Answer: 'El despertador intel·ligent monitoritza els teus cicles de son i et desperta durant el son lleuger dins d\'una finestra de 30 minuts abans de l\'hora d\'alarma que hagis establert. Això t\'ajuda a evitar despertar-te durant el son profund, cosa que pot fer que et sentis atordit.',
+        faqCta: 'Encara tens preguntes?',
+        contactSupport: 'Contacta amb el nostre equip de suport',
         
         // CTA Section
         readyToTransform: 'Preparat per Transformar els Teus Matins?',
@@ -240,23 +307,49 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const lang = button.getAttribute('data-lang');
             setLanguage(lang);
-            document.querySelector('.language-dropdown').classList.remove('show');
+            
+            // Close dropdown after selection
+            const dropdown = document.querySelector('.language-dropdown');
+            const languageBtn = document.querySelector('.language-btn');
+            
+            dropdown.classList.remove('show');
+            languageBtn.setAttribute('aria-expanded', 'false');
+            
+            // On mobile, also close the mobile menu if open
+            if (window.innerWidth <= 768) {
+                const mobileMenu = document.querySelector('.nav-links');
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.remove('show');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            }
         });
     });
     
-    // Toggle language dropdown on mobile
-    document.querySelector('.language-btn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        const dropdown = document.querySelector('.language-dropdown');
-        const isExpanded = dropdown.classList.toggle('show');
-        document.querySelector('.language-btn').setAttribute('aria-expanded', isExpanded);
-    });
+    // Toggle language dropdown
+    const languageBtn = document.querySelector('.language-btn');
+    if (languageBtn) {
+        languageBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const dropdown = document.querySelector('.language-dropdown');
+            const isExpanded = dropdown.classList.toggle('show');
+            languageBtn.setAttribute('aria-expanded', isExpanded);
+        });
+    }
     
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.language-selector')) {
-            document.querySelector('.language-dropdown').classList.remove('show');
-            document.querySelector('.language-btn').setAttribute('aria-expanded', 'false');
+            const dropdown = document.querySelector('.language-dropdown');
+            const languageBtn = document.querySelector('.language-btn');
+            
+            if (dropdown && dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+                languageBtn.setAttribute('aria-expanded', 'false');
+            }
         }
     });
 });
