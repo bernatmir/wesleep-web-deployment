@@ -239,8 +239,39 @@ const initVideoPlayer = () => {
     observer.observe(videoElement);
 };
 
-// Initialize animations and video player
+// Navbar scroll effect
+const header = document.querySelector('.header');
+let lastScroll = 0;
+
+const handleScroll = () => {
+    const currentScroll = window.pageYOffset;
+    
+    // Add/remove scrolled class based on scroll position
+    if (currentScroll > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    
+    // Optional: Hide/show navbar on scroll direction (uncomment if desired)
+    // if (currentScroll > lastScroll && currentScroll > 100) {
+    //     header.style.transform = 'translateY(-100%)';
+    // } else {
+    //     header.style.transform = 'translateY(0)';
+    // }
+    
+    lastScroll = currentScroll;
+};
+
+// Initialize animations, video player, and scroll event
+window.addEventListener('scroll', handleScroll);
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Add scrolled class if page is loaded with scroll position
+    if (window.pageYOffset > 50) {
+        header.classList.add('scrolled');
+    }
+    
     addAnimationDelays();
     initVideoPlayer();
     
