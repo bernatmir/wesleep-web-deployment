@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - WeSleep</title>
+    <meta name="description" content="Complete API documentation for WeSleep sleep intelligence platform">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .api-docs {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        
+        .docs-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .docs-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark-grey);
+        }
+        
+        .docs-header p {
+            font-size: 1.25rem;
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .endpoint-section {
+            margin-bottom: 60px;
+        }
+        
+        .endpoint-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--dark-grey);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 8px;
+        }
+        
+        .endpoint {
+            background: white;
+            border: 1px solid var(--border-grey);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        
+        .method {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+        
+        .method.get {
+            background: #e7f5ff;
+            color: #0969da;
+        }
+        
+        .method.post {
+            background: #dcffe4;
+            color: #1a7f37;
+        }
+        
+        .endpoint-url {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--dark-grey);
+            background: var(--light-grey);
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        
+        .endpoint-description {
+            margin-bottom: 16px;
+            color: var(--medium-grey);
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+        
+        .response-example {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent-blue);
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .back-link svg {
+            margin-right: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .api-docs {
+                padding: 60px 16px;
+            }
+            
+            .docs-header h1 {
+                font-size: 2rem;
+            }
+            
+            .endpoint-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="api-docs">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5"/>
+                <path d="M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Website
+        </a>
+        
+        <div class="docs-header">
+            <h1>WeSleep API Documentation</h1>
+            <p>Complete API reference for integrating sleep intelligence into your healthcare insurance platform</p>
+        </div>
+        
+        <div class="endpoint-section">
+            <h2>🔗 Authentication</h2>
+            <div class="endpoint">
+                <div class="endpoint-description">
+                    All API requests require authentication using your API key. Include your API key in the request headers:
+                </div>
+                <div class="code-block">
+Authorization: Bearer your-api-key
+Content-Type: application/json
+                </div>
+            </div>
+        </div>
+        
+        <div class="endpoint-section">
+            <h2>📥 Wearable Data Ingestion</h2>
+            
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method post">POST</span>
+                    <span class="endpoint-url">/api/v1/webhooks/wearable/</span>
+                </div>
+                <div class="endpoint-description">
+                    Receive raw sleep data from wearable devices and store it for analysis
+                </div>
+                <div class="code-block">
+// Request Body
+{
+  "user_id": "user-123",
+  "timestamp": "2024-01-15T07:30:00Z",
+  "duration": 4800000,
+  "hypnogram": [
+    {"start_at": "2024-01-15T23:30:00Z", "end_at": "2024-01-15T23:45:00Z", "phase": "light"},
+    {"start_at": "2024-01-15T23:45:00Z", "end_at": "2024-01-16T01:30:00Z", "phase": "deep"},
+    {"start_at": "2024-01-16T01:30:00Z", "end_at": "2024-01-16T02:15:00Z", "phase": "rem"},
+    {"start_at": "2024-01-16T02:15:00Z", "end_at": "2024-01-16T07:30:00Z", "phase": "light"}
+  ],
+  "metrics": {
+    "hrv_sdnn": 45,
+    "avg_hr": 58,
+    "spo2": 96.5,
+    "sleep_efficiency": 92
+  }
+}
+                </div>
+                <div class="response-example">
+                    <strong>Response:</strong>
+                    <div class="code-block">
+{
+  "sleep_record_id": "550e8400-e29b-41d4-a716-446655440000",
+  "status": "success",
+  "message": "Sleep data stored successfully"
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="endpoint-section">
+            <h2>⏰ Smart Alarm Prediction</h2>
+            
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/api/v1/alarm/predict/{patient_id}</span>
+                </div>
+                <div class="endpoint-description">
+                    Get the optimal wake-up time for a specific user based on their sleep patterns
+                </div>
+                <div class="code-block">
+// Query Parameters
+?target_time=07:30
+
+// Response
+{
+  "patient_id": "user-123",
+  "target_time": "07:30",
+  "optimal_time": "07:18",
+  "confidence_score": 0.87,
+  "window_start": "07:00",
+  "window_end": "07:30",
+  "reasoning": "User typically enters light sleep phase around 07:15-07:20 based on 7-night history"
+}
+                </div>
+            </div>
+        </div>
+        
+        <div class="endpoint-section">
+            <h2>📊 Sleep Insights</h2>
+            
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/api/v1/insights/weekly/{patient_id}</span>
+                </div>
+                <div class="endpoint-description">
+                    Get weekly sleep analysis and engagement summaries for users
+                </div>
+                <div class="code-block">
+{
+  "patient_id": "user-123",
+  "period": "weekly",
+  "current_week": {
+    "avg_hrv": 42,
+    "deep_sleep_hours": 2.3,
+    "sleep_efficiency": 91,
+    "total_sleep_duration": 7.8
+  },
+  "previous_week": {
+    "avg_hrv": 38,
+    "deep_sleep_hours": 2.1,
+    "sleep_efficiency": 89,
+    "total_sleep_duration": 7.5
+  },
+  "trends": {
+    "hrv_change": "+10.5%",
+    "deep_sleep_change": "+9.5%",
+    "efficiency_change": "+2.2%"
+  },
+  "weekly_recap": "Great progress this week! Your HRV has improved significantly, indicating better recovery. Keep maintaining this consistent sleep schedule.",
+  "daily_data": [
+    {"date": "2024-01-09", "sleep_score": 82, "duration": 7.2},
+    {"date": "2024-01-10", "sleep_score": 88, "duration": 7.8},
+    // ... more daily entries
+  ]
+}
+                </div>
+            </div>
+            
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="endpoint-url">/api/v1/insights/monthly/{patient_id}</span>
+                </div>
+                <div class="endpoint-description">
+                    Get monthly anomaly detection and clinical referral recommendations
+                </div>
+                <div class="code-block">
+{
+  "patient_id": "user-123",
+  "period": "monthly",
+  "status": "alert",
+  "alert": {
+    "type": "clinical_referral",
+    "severity": "moderate",
+    "message": "We've observed a sustained 18% decrease in your HRV over the past 15 days, which may indicate increased stress or early signs of overtraining. We strongly recommend scheduling a consultation with your healthcare provider to discuss these changes.",
+    "metrics_affected": ["hrv", "sleep_efficiency"],
+    "recommendation": "schedule_consultation"
+  },
+  "analysis": {
+    "first_half_month": {"avg_hrv": 45, "efficiency": 93},
+    "second_half_month": {"avg_hrv": 37, "efficiency": 87},
+    "deterioration_threshold": 15
+  }
+}
+                </div>
+            </div>
+        </div>
+        
+        <div class="endpoint-section">
+            <h2>�️ Frontend Dashboard Integration</h2>
+            <div class="endpoint">
+                <div class="endpoint-description">
+                    We provide a ready-to-use frontend dashboard that automatically displays sleep data from your API. No frontend development required - simply integrate with our API and the dashboard will visualize the data for you.
+                </div>
+                <div class="code-block">
+// Integration Steps:
+// 1. Send sleep data via POST /api/v1/webhooks/wearable/
+// 2. Dashboard automatically fetches and displays data
+// 3. Your users see beautiful sleep analytics immediately
+
+// Example: Your backend sends data to WeSleep
+fetch('https://api.wesleep.pro/api/v1/webhooks/wearable/', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer your-api-key',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    user_id: 'patient-123',
+    timestamp: '2024-01-15T07:30:00Z',
+    // ... sleep data
+  })
+});
+
+// Dashboard automatically shows:
+// - Sleep scores and trends
+// - Smart alarm recommendations  
+// - Weekly/monthly insights
+// - Health anomaly alerts
+                </div>
+            </div>
+        </div>
+        
+        <div class="endpoint-section">
+            <h2>🚦 Rate Limits & Errors</h2>
+            <div class="endpoint">
+                <div class="endpoint-description">
+                    <strong>Rate Limits:</strong>
+                    <ul style="margin: 12px 0;">
+                        <li>Starter: 100 requests/minute</li>
+                        <li>Professional: 500 requests/minute</li>
+                        <li>Enterprise: Unlimited</li>
+                    </ul>
+                </div>
+                <div class="code-block">
+// Error Response Format
+{
+  "error": {
+    "code": "RATE_LIMIT_EXCEEDED",
+    "message": "Rate limit exceeded. Please try again later.",
+    "details": {
+      "limit": 100,
+      "window": "60s",
+      "retry_after": 45
+    }
+  }
+}
+
+// Common Error Codes
+400 - Bad Request
+401 - Unauthorized
+429 - Rate Limit Exceeded
+500 - Internal Server Error
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

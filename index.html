@@ -1,465 +1,467 @@
 <!DOCTYPE html>
-<html lang="en" data-i18n-lang>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WeSleep - Wake up refreshed with our smart alarm technology that finds your perfect waking moment" data-i18n="metaDescription">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
+    <title>WeSleep API - Sleep Intelligence for Healthcare Insurance</title>
+    <meta name="description" content="Integrate advanced sleep tracking and analysis into your healthcare insurance platform with WeSleep API">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
-    
-    <!-- Preload hero image -->
-    <link rel="preload" as="image" href="assets/images/hero-bg.webp">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#1a1a2e">
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="WeSleep | Smart Alarm for Perfect Mornings" data-i18n="pageTitle">
-    <meta property="og:description" content="Wake up refreshed with our smart alarm technology that finds your perfect waking moment" data-i18n="metaDescription">
-    <meta property="og:image" content="https://wesleep.com/assets/images/og-image.jpg">
-    <meta property="og:url" content="https://wesleep.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WeSleep | Smart Alarm for Perfect Mornings" data-i18n="pageTitle">
-    <meta name="twitter:description" content="Wake up refreshed with our smart alarm technology that finds your perfect waking moment" data-i18n="metaDescription">
-    <meta name="twitter:image" content="https://wesleep.com/assets/images/og-image.jpg">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <title data-i18n="pageTitle">WeSleep | Smart Alarm for Perfect Mornings</title>
-    
-    <!-- Preload scripts -->
-    <link rel="preload" as="script" href="carousel.js">
-    <link rel="preload" as="script" href="script.js">
-    <link rel="preload" as="script" href="i18n.js">
-    
-    <!-- Load non-critical CSS asynchronously -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <!-- Load scripts with defer -->
-    <script src="carousel.js" defer></script>
-    <script src="script.js" defer></script>
-    <script src="i18n.js" defer></script>
-    
-    <!-- Cookie Consent -->
-    <link rel="stylesheet" href="css/cookie-consent.css" media="print" onload="this.media='all'">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">WeSleep</div>
-                <div class="nav-links">
-                    <a href="#features" data-i18n="features">Features</a>
-                    <a href="#how-it-works" data-i18n="howItWorks">How It Works</a>
-                    <!-- Hidden from public: Testimonials link temporarily removed from header -->
-                    <a href="#testimonials" data-i18n="testimonials" style="display:none !important;" aria-hidden="true">Testimonials</a>
-                    <div class="language-selector">
-                        <button class="language-btn" aria-haspopup="true" aria-expanded="false">
-                            <span class="selected-language">EN</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <ul class="language-dropdown" role="menu">
-                            <li><button class="language-option" data-lang="ca" data-i18n="catalan">Català</button></li>
-                            <li><button class="language-option" data-lang="en" data-i18n="english">English</button></li>
-                            <li><button class="language-option" data-lang="es" data-i18n="spanish">Español</button></li>
-                        </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>WeSleep</h2>
+                <span class="api-badge">API</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#features" data-translate="nav_features">Features</a></li>
+                <li><a href="#integration" data-translate="nav_integration">Integration</a></li>
+                <li><a href="#pricing" data-translate="nav_pricing">Pricing</a></li>
+                <li><a href="#documentation" data-translate="nav_documentation">Documentation</a></li>
+                <li><a href="#contact" class="nav-cta" data-translate="nav_get_started">Get Started</a></li>
+                <li class="language-selector">
+                    <button class="lang-btn" id="langToggle">
+                        <span class="lang-current">EN</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button class="lang-option" data-lang="ca">Català</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="es">Español</button>
                     </div>
-                    <a href="#download" class="btn btn-primary" data-i18n="downloadApp">Coming Soon</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-translate="hero_title">Sleep Intelligence for Healthcare Insurance</h1>
+                <p class="hero-subtitle" data-translate="hero_subtitle">Our patented predictive system analyzes sleep patterns and identifies the optimal wake-up moment for each user. Transform raw wearable data into preventative health insights and daily wellness improvement for your insurance members.</p>
+                <div class="hero-actions">
+                    <a href="#documentation" class="btn btn-primary" data-translate="hero_view_docs">View Documentation</a>
+                    <a href="#contact" class="btn btn-secondary" data-translate="hero_contact_sales">Contact Sales</a>
                 </div>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+            </div>
+            <div class="hero-visual">
+                <img src="images/iPad peview.png" alt="WeSleep iPad Dashboard" class="hero-image">
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 data-i18n="heroTitle">Wake Up Refreshed,<br>Every Morning</h1>
-                    <p class="lead" data-i18n="heroSubtitle">WeSleep's smart alarm technology wakes you up at the perfect moment within your chosen time window, ensuring you feel refreshed and energized.</p>
-                    <div class="cta-buttons">
-                        <a href="#download" class="btn btn-primary" data-i18n="downloadNow">Coming Soon</a>
-                        <a href="#how-it-works" class="btn btn-secondary" data-i18n="howItWorksBtn">How It Works <i class="fas fa-arrow-right"></i></a>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="features_title">Powerful Sleep Analytics</h2>
+                <p data-translate="features_subtitle">Comprehensive sleep data and insights to enhance your healthcare platform</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12h18m-9-9v18"/>
+                        </svg>
                     </div>
+                    <h3 data-translate="feature1_title">Sleep Cycle Analysis</h3>
+                    <p data-translate="feature1_desc">Detailed tracking of sleep stages, cycles, and patterns with millisecond precision</p>
                 </div>
-                <div class="carousel-container">
-                    <div class="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="carousel-frame">
-                                    <img src="assets/images/image1.webp" alt="WeSleep App Preview" class="carousel-img">
-                                </div>
-                            </div>
-                            <!-- Add more screenshots here when available -->
-                            <div class="carousel-item">
-                                <div class="carousel-frame">
-                                    <img src="assets/images/image%202.webp" alt="WeSleep App Feature 1" class="carousel-img">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="carousel-frame">
-                                    <img src="assets/images/image%203.webp" alt="WeSleep App Feature 2" class="carousel-img">
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-control prev" aria-label="Previous slide">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-control next" aria-label="Next slide">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="carousel-indicators">
-                            <button class="indicator active" aria-label="Slide 1"></button>
-                            <button class="indicator" aria-label="Slide 2"></button>
-                            <button class="indicator" aria-label="Slide 3"></button>
-                        </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
                     </div>
+                    <h3 data-translate="feature2_title">Smart Predictive Alarm</h3>
+                    <p data-translate="feature2_desc">Patented algorithm analyzes user history to find the optimal wake-up moment within a 30-minute window, avoiding deep sleep phases and sleep inertia</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                        </svg>
+                    </div>
+                    <h3 data-translate="feature3_title">Preventive Health Analysis</h3>
+                    <p data-translate="feature3_desc">AI-powered analysis of HRV, sleep phases, and SpO₂ trends to detect health deterioration patterns before they become chronic conditions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 data-translate="feature4_title">Dual-Layer Insights</h3>
+                    <p data-translate="feature4_desc">Weekly user engagement summaries and monthly clinical anomaly detection with proactive referral recommendations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 data-translate="feature5_title">White-Label Solution</h3>
+                    <p data-translate="feature5_desc">B2B SaaS model designed for seamless integration into healthcare insurance ecosystems with your branding</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m4.22-13.22l4.24 4.24M1.54 1.54l4.24 4.24M20.46 20.46l-4.24-4.24M1.54 20.46l4.24-4.24"/>
+                        </svg>
+                    </div>
+                    <h3 data-translate="feature6_title">No-Diagnosis AI System</h3>
+                    <p data-translate="feature6_desc">Advanced LLM analysis with strict constraints to provide insights without medical diagnoses, acting as an early warning system</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="features" class="features">
-            <div class="container">
-                <h2 data-i18n="sleepSmarter">Sleep Smarter with WeSleep</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-moon"></i></div>
-                        <h3 data-i18n="smartWakeUp">Smart Wake-Up</h3>
-                        <p data-i18n="smartWakeUpDesc">Wakes you up at the optimal time within your chosen window when you're in light sleep.</p>
+    <!-- Business Model Section -->
+    <section id="business-model" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="business_title">B2B SaaS for Healthcare Insurance</h2>
+                <p data-translate="business_subtitle">White-label solution designed to enhance patient retention and reduce medical costs through preventative care</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3 data-i18n="sleepAnalysis">Sleep Analysis</h3>
-                        <p data-i18n="sleepAnalysisDesc">Detailed insights into your sleep patterns with daily, weekly, and monthly reports.</p>
+                    <h3 data-translate="business_feature1_title">Patient Retention</h3>
+                    <p data-translate="business_feature1_desc">Daily smart alarm usage creates high engagement with your insurance platform, building lasting member relationships</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                        <h3 data-i18n="aiPowered">AI-Powered</h3>
-                        <p data-i18n="aiPoweredDesc">Advanced algorithms learn your sleep patterns to improve accuracy over time.</p>
+                    <h3 data-translate="business_feature2_title">Cost Reduction</h3>
+                    <p data-translate="business_feature2_desc">Early detection through monthly anomaly alerts prevents expensive chronic treatments, reducing overall healthcare costs</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
                     </div>
+                    <h3 data-translate="business_feature3_title">Multi-Tenant Architecture</h3>
+                    <p data-translate="business_feature3_desc">FastAPI backend with PostgreSQL, supporting multiple insurance providers with complete data isolation</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="how-it-works" class="how-it-works">
-            <div class="container">
-                <h2 data-i18n="howItWorksTitle">How It Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3 data-i18n="setYourWindow">Set Your Window</h3>
-                            <p data-i18n="setYourWindowDesc">Choose your preferred wake-up window (e.g., 6:30 AM - 7:00 AM).</p>
-                        </div>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="integration">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="howitworks_title">How WeSleep Works</h2>
+                <p data-translate="howitworks_subtitle">From wearable data to actionable health insights</p>
+            </div>
+            <div class="integration-content">
+                <div class="integration-code">
+                    <div class="code-header">
+                        <span class="code-language" data-translate="howitworks_dataflow">Data Flow</span>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3 data-i18n="sleepNaturally">Sleep Naturally</h3>
-                            <p data-i18n="sleepNaturallyDesc">Go to bed as usual. Our technology works while you sleep.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3 data-i18n="wakeUpRefreshed">Wake Up Refreshed</h3>
-                            <p data-i18n="wakeUpRefreshedDesc">We'll wake you at the optimal time within your window when you're in light sleep.</p>
-                        </div>
-                    </div>
+                    <pre><code>1. Wearable Data Ingestion
+   POST /api/v1/webhooks/wearable/
+   → Raw sleep data stored as JSONB
+
+2. Smart Alarm Prediction
+   GET /api/v1/alarm/predict/{patient_id}
+   → 30-minute window optimization
+
+3. Weekly User Insights
+   GET /api/v1/insights/weekly/{patient_id}
+   → Motivational engagement summaries
+
+4. Monthly Anomaly Detection
+   GET /api/v1/insights/monthly/{patient_id}
+   → Clinical referral alerts</code></pre>
+                </div>
+                <div class="integration-features">
+                    <h3 data-translate="howitworks_metrics_title">Key Metrics Analyzed</h3>
+                    <ul>
+                        <li><strong>Heart Rate Variability (HRV)</strong> - Recovery and stress indicator</li>
+                        <li><strong>Sleep Phases Distribution</strong> - Light, deep, and REM patterns</li>
+                        <li><strong>Blood Oxygen (SpO₂)</strong> - Apnea detection support</li>
+                        <li><strong>Sleep Efficiency</strong> - Quality vs time in bed ratio</li>
+                        <li><strong>Trend Analysis</strong> - Intra-month deterioration patterns</li>
+                        <li><strong>AI-Powered Reasoning</strong> - Groq LLM with no-diagnosis constraints</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Hidden from public: To restore this section remove the inline style and aria-hidden attribute -->
-        <section id="video-demo" class="video-demo" style="display:none !important;" aria-hidden="true">
-            <div class="container">
-                <div class="section-header">
-                    <h2 data-i18n="videoTitle">See WeSleep in Action</h2>
-                    <p class="section-subtitle" data-i18n="videoSubtitle">Watch how WeSleep helps you wake up at the perfect time, every time</p>
+    <!-- Integration Section -->
+    <section id="integration" class="integration">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="integration_title">Seamless Integration</h2>
+                <p data-translate="integration_subtitle">Get started in minutes with our developer-friendly API</p>
+            </div>
+            <div class="integration-content">
+                <div class="integration-code">
+                    <div class="code-header">
+                        <span class="code-language">JavaScript</span>
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                    <pre><code>const WeSleepAPI = require('wesleep-api');
+
+const client = new WeSleepAPI({
+  apiKey: 'your-api-key',
+  baseURL: 'https://api.wesleep.pro'
+});
+
+// Get sleep data for a user
+const sleepData = await client.sleep.getUserData({
+  userId: 'user-123',
+  dateRange: {
+    start: '2024-01-01',
+    end: '2024-01-31'
+  }
+});
+
+console.log(sleepData);</code></pre>
                 </div>
-                <div class="video-container">
-                    <div class="video-wrapper">
-                        <div class="video-placeholder">
-                            <video class="video-element" preload="metadata" poster="assets/images/video-thumbnail.jpg">
-                                <source src="assets/videos/app-demo.mp4" type="video/mp4">
-                                <source src="assets/videos/app-demo.webm" type="video/webm">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-controls">
-                                <button class="control-btn rewind-10" title="Rewind 10s">
-                                    <i class="fas fa-backward"></i> 10s
-                                </button>
-                                <button class="control-btn play-pause" title="Play/Pause">
-                                    <i class="fas fa-play"></i>
-                                </button>
-                                <button class="control-btn forward-10" title="Forward 10s">
-                                    10s <i class="fas fa-forward"></i>
-                                </button>
-                            </div>
-                            <img src="assets/images/video-thumbnail.jpg" alt="WeSleep App Demo" class="video-thumbnail">
-                        </div>
-                    </div>
-                </div>
-                <div class="video-features">
-                    <div class="feature-item">
-                        <i class="fas fa-moon"></i>
-                        <h4 data-i18n="videoFeature1">Smart Sleep Tracking</h4>
-                        <p data-i18n="videoFeature1Desc">Monitors your sleep cycles throughout the night</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-bell"></i>
-                        <h4 data-i18n="videoFeature2">Perfect Wake Window</h4>
-                        <p data-i18n="videoFeature2Desc">Wakes you up at the optimal time in your sleep cycle</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h4 data-i18n="videoFeature3">Sleep Insights</h4>
-                        <p data-i18n="videoFeature3Desc">Get detailed reports on your sleep quality</p>
-                    </div>
+                <div class="integration-features">
+                    <h3 data-translate="integration_dev_title">Developer-Friendly Features</h3>
+                    <ul>
+                        <li data-translate="integration_feature1">FastAPI-based architecture with clear documentation</li>
+                        <li data-translate="integration_feature2">Ready-to-use frontend dashboard for data visualization</li>
+                        <li>Webhook support for real-time updates</li>
+                        <li>Sandbox environment for testing</li>
+                        <li>Comprehensive error handling</li>
+                        <li>Rate limiting and monitoring</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Hidden from public: To restore this section remove the inline style and aria-hidden attribute -->
-        <section id="testimonials" class="testimonials" style="display:none !important;" aria-hidden="true">
-            <div class="container">
-                <h2 data-i18n="whatUsersSay">What Our Users Say</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <p data-i18n="testimonial1">"Game changer! I wake up feeling refreshed instead of groggy. The smart alarm makes all the difference."</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah M.">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Sarah M.</h4>
-                                    <p data-i18n="testimonial1Role">Marketing Executive</p>
-                                </div>
-                            </div>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="pricing_title">Transparent Pricing</h2>
+                <p data-translate="pricing_subtitle">Flexible plans designed for healthcare providers and insurance companies</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-translate="pricing_starter">Starter</h3>
+                        <div class="price">
+                            <span class="currency">€</span>
+                            <span class="amount">900</span>
+                            <span class="period">/month</span>
                         </div>
                     </div>
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <p data-i18n="testimonial2">"I was skeptical at first, but the difference in how I feel in the mornings is incredible. Highly recommend!"</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">
-                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James T.">
-                                </div>
-                                <div class="author-info">
-                                    <h4>James T.</h4>
-                                    <p data-i18n="testimonial2Role">Software Developer</p>
-                                </div>
-                            </div>
+                    <ul class="pricing-features">
+                        <li data-translate="pricing_starter1">Up to 1,000 users</li>
+                        <li data-translate="pricing_starter2">Basic sleep metrics</li>
+                        <li data-translate="pricing_starter3">Email support</li>
+                        <li data-translate="pricing_starter4">API access</li>
+                        <li data-translate="pricing_starter5">Monthly reports</li>
+                    </ul>
+                    <button class="btn btn-outline" data-translate="pricing_starter_cta">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <span class="popular-badge">Most Popular</span>
+                        <h3 data-translate="pricing_professional">Professional</h3>
+                        <div class="price">
+                            <span class="currency">€</span>
+                            <span class="amount">1,250</span>
+                            <span class="period">/month</span>
                         </div>
                     </div>
+                    <ul class="pricing-features">
+                        <li data-translate="pricing_pro1">Up to 10,000 users</li>
+                        <li data-translate="pricing_pro2">Advanced sleep analytics</li>
+                        <li data-translate="pricing_pro3">Priority support</li>
+                        <li data-translate="pricing_pro4">Custom integrations</li>
+                        <li data-translate="pricing_pro5">Real-time monitoring</li>
+                        <li data-translate="pricing_pro6">AI-powered insights</li>
+                    </ul>
+                    <button class="btn btn-primary" data-translate="pricing_pro_cta">Get Started</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-translate="pricing_enterprise">Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">Contact Us</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-translate="pricing_enterprise1">Unlimited users</li>
+                        <li data-translate="pricing_enterprise2">Custom features</li>
+                        <li data-translate="pricing_enterprise3">Dedicated support</li>
+                        <li data-translate="pricing_enterprise4">On-premise deployment</li>
+                        <li data-translate="pricing_enterprise5">Custom SLA</li>
+                        <li data-translate="pricing_enterprise6">White-label options</li>
+                    </ul>
+                    <button class="btn btn-outline" data-translate="pricing_enterprise_cta">Contact Sales</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Hidden from public: To restore this CTA remove the inline style and aria-hidden attribute -->
-        <section id="download" class="cta" style="display:none !important;" aria-hidden="true">
-            <div class="container">
-                <h2 data-i18n="readyToTransform">Ready to Transform Your Mornings?</h2>
-                <p data-i18n="downloadToday">Download WeSleep today and wake up feeling refreshed and energized every morning.</p>
-                <div class="download-buttons">
-                    <a href="#" class="app-store-btn">
-                        <i class="fab fa-apple"></i>
-                        <div>
-                            <span data-i18n="downloadOn">Download on the</span>
-                            <strong data-i18n="appStore">App Store</strong>
-                        </div>
-                    </a>
-                    <a href="#" class="google-play-btn">
-                        <i class="fab fa-google-play"></i>
-                        <div>
-                            <span data-i18n="getItOn">Get it on</span>
-                            <strong data-i18n="googlePlay">Google Play</strong>
-                        </div>
-                    </a>
+    <!-- Documentation Section -->
+    <section id="documentation" class="documentation">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="docs_title">Comprehensive Documentation</h2>
+                <p data-translate="docs_subtitle">Everything you need to integrate sleep intelligence into your platform</p>
+            </div>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <h3 data-translate="docs_getting_started">Getting Started</h3>
+                    <p data-translate="docs_getting_started_desc">Quick start guide and authentication setup</p>
+                    <a href="#" class="doc-link" data-translate="docs_read_more">Read More →</a>
+                </div>
+                <div class="doc-card">
+                    <h3 data-translate="docs_api_reference">API Reference</h3>
+                    <p data-translate="docs_api_reference_desc">Complete API documentation with examples</p>
+                    <a href="api-documentation.html" class="doc-link" data-translate="docs_read_more">Read More →</a>
+                </div>
+                <div class="doc-card">
+                    <h3 data-translate="docs_sdks">SDKs & Libraries</h3>
+                    <p data-translate="docs_sdks_desc">Official SDKs for popular programming languages</p>
+                    <a href="#" class="doc-link" data-translate="docs_read_more">Read More →</a>
+                </div>
+                <div class="doc-card">
+                    <h3 data-translate="docs_webhooks">Webhooks</h3>
+                    <p data-translate="docs_webhooks_desc">Real-time data updates and event notifications</p>
+                    <a href="#" class="doc-link" data-translate="docs_read_more">Read More →</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="faq">
-            <div class="container">
-                <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
-                <p class="section-subtitle" data-i18n="faqSubtitle">Find answers to common questions about WeSleep</p>
-                
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <button class="accordion-button" aria-expanded="false" aria-controls="faq1">
-                            <span data-i18n="faq1Question">How does WeSleep track my sleep?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-content" id="faq1">
-                            <p data-i18n="faq1Answer">WeSleep uses your smartphone's accelerometer and microphone to track your movements and breathing patterns while you sleep. This allows us to detect your sleep cycles and determine the optimal time to wake you up within your selected time window.</p>
-                        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="contact_title">Ready to Transform Healthcare?</h2>
+                <p data-translate="contact_subtitle">Get in touch with our team to discuss how WeSleep API can enhance your platform</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3 data-translate="contact_sales">Sales</h3>
+                        <p>bernat@wesleep.pro</p>
+                        <p>+34 689 445 125</p>
+                        <p>jaume@wesleep.pro</p>
+                        <p>+34 639 755 988</p>
+                        
                     </div>
-                    
-                    <div class="accordion-item">
-                        <button class="accordion-button" aria-expanded="false" aria-controls="faq2">
-                            <span data-i18n="faq2Question">Is WeSleep free to use?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-content" id="faq2">
-                            <p data-i18n="faq2Answer">Yes! WeSleep offers a free version with all the essential features for better sleep tracking and smart alarms. We also offer a premium subscription with advanced features like detailed sleep analysis, personalized recommendations, and integration with other health apps.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="accordion-item">
-                        <button class="accordion-button" aria-expanded="false" aria-controls="faq3">
-                            <span data-i18n="faq3Question">Does WeSleep drain my phone's battery?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-content" id="faq3">
-                            <p data-i18n="faq3Answer">We've optimized WeSleep to use minimal battery power during sleep tracking. On average, the app uses less than 5% of your battery per night. For best results, we recommend keeping your phone plugged in while you sleep.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="accordion-item">
-                        <button class="accordion-button" aria-expanded="false" aria-controls="faq4">
-                            <span data-i18n="faq4Question">Can I use WeSleep with my smartwatch?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-content" id="faq4">
-                            <p data-i18n="faq4Answer">Yes! WeSleep is compatible with most major smartwatches including Apple Watch, Wear OS, and Garmin devices. Syncing your watch allows for even more accurate sleep tracking and additional health metrics.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="accordion-item">
-                        <button class="accordion-button" aria-expanded="false" aria-controls="faq5">
-                            <span data-i18n="faq5Question">How does the smart alarm work?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="accordion-content" id="faq5">
-                            <p data-i18n="faq5Answer">The smart alarm monitors your sleep cycles and wakes you up during light sleep within a 30-minute window before your set alarm time. This helps you avoid waking up during deep sleep, which can leave you feeling groggy.</p>
-                        </div>
+                    <div class="contact-item">
+                        <h3 data-translate="contact_support">Technical Support</h3>
+                        <p>bernat@wesleep.pro</p>
+                        <p data-translate="contact_support_desc">24/7 Enterprise Support</p>
                     </div>
                 </div>
-                
-                <div class="faq-cta">
-                    <p data-i18n="faqCta">Still have questions? Contact us at <a href="mailto:info@wesleep.pro">info@wesleep.pro</a> or call us at <a href="tel:+34689445125">+34 689 445 125</a>.</p>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" data-translate-placeholder="form_name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" data-translate-placeholder="form_email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Company Name" data-translate-placeholder="form_company" required>
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option data-translate="form_plan_select">Select Plan</option>
+                                <option data-translate="form_plan_starter">Starter</option>
+                                <option data-translate="form_plan_professional">Professional</option>
+                                <option data-translate="form_plan_enterprise">Enterprise</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tell us about your needs" data-translate-placeholder="form_message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-translate="form_submit">Send Message</button>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2 class="section-title" data-i18n="contactUs">Contact Us</h2>
-                <p class="section-subtitle" data-i18n="contactSubtitle">We're here to help and answer any questions you might have</p>
-                
-                <div class="contact-methods">
-                    <a href="mailto:info@wesleep.pro" class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3 data-i18n="emailUs">Email Us</h3>
-                            <p>bernat@wesleep.pro</p>
-                            <p>jaume@wesleep.pro</p>
-                        </div>
-                    </a>
-                    
-                    <a href="tel:+34689445125" class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3 data-i18n="callUs">Call Us</h3>
-                            <p>+34 689 445 125</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">WeSleep</div>
-                    <p data-i18n="footerTagline">Helping you achieve better sleep and more productive mornings.</p>
+                    <h3>WeSleep API</h3>
+                    <p data-translate="footer_description">Sleep intelligence for healthcare insurance platforms</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 data-i18n="product">Product</h4>
-                        <a href="#" data-i18n="features">Features</a>
-                        <a href="#" data-i18n="pricing">Pricing</a>
-                        <a href="#" data-i18n="download">Download</a>
+                        <h4 data-translate="footer_product">Product</h4>
+                        <ul>
+                            <li><a href="#features" data-translate="footer_features">Features</a></li>
+                            <li><a href="#pricing" data-translate="footer_pricing">Pricing</a></li>
+                            <li><a href="#documentation" data-translate="footer_documentation">Documentation</a></li>
+                            <li><a href="#" data-translate="footer_api_status">API Status</a></li>
+                        </ul>
                     </div>
                     <div class="footer-column">
-                        <h4 data-i18n="company">Company</h4>
-                        <a href="#" data-i18n="aboutUs">About Us</a>
-                        <a href="#" data-i18n="careers">Careers</a>
-                        <a href="#" data-i18n="contact">Contact</a>
+                        <h4 data-translate="footer_company">Company</h4>
+                        <ul>
+                            <li><a href="#" data-translate="footer_about">About Us</a></li>
+                            <li><a href="#" data-translate="footer_careers">Careers</a></li>
+                            <li><a href="#" data-translate="footer_blog">Blog</a></li>
+                            <li><a href="#contact" data-translate="footer_contact">Contact</a></li>
+                        </ul>
                     </div>
                     <div class="footer-column">
-                        <h4 data-i18n="legal">Legal</h4>
-                        <a href="#" data-i18n="privacyPolicy">Privacy Policy</a>
-                        <a href="#" data-i18n="termsOfService">Terms of Service</a>
+                        <h4 data-translate="footer_legal">Legal</h4>
+                        <ul>
+                            <li><a href="#" data-translate="footer_privacy">Privacy Policy</a></li>
+                            <li><a href="#" data-translate="footer_terms">Terms of Service</a></li>
+                            <li><a href="#" data-translate="footer_compliance">Compliance</a></li>
+                            <li><a href="#" data-translate="footer_security">Security</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-i18n="copyright">&copy; 2025 WeSleep. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
+                <p data-translate="footer_copyright">&copy; 2025 WeSleep. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Cookie Consent Banner -->
-    <div class="cookie-consent" id="cookieConsent">
-        <p data-i18n="cookieConsent">We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies. <a href="/privacy" data-i18n="privacyPolicy">Learn more</a></p>
-            <div class="cookie-consent-actions">
-            <button class="cookie-consent-btn cookie-consent-decline" id="declineCookies" data-i18n="decline">Decline</button>
-            <button class="cookie-consent-btn cookie-consent-accept btn btn-primary" id="acceptCookies" data-i18n="accept">Accept</button>
-        </div>
-    </div>
-
-    <!-- Sticky CTA Button (Mobile) -->
-    <a href="#download" class="sticky-cta" data-i18n="downloadNow">Coming Soon</a>
-
-    <!-- Scripts -->
-    <!-- background diagnostic loader removed to restore original site background -->
-    <script src="i18n.js"></script>
-    <script src="js/cookie-consent.js" defer></script>
-    <script src="js/accordion.js" defer></script>
     <script src="script.js"></script>
 </body>
 </html>
