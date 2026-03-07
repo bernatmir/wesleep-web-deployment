@@ -36,8 +36,10 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: var(--dark-grey);
-    background-color: var(--primary-white);
+    color: var(--primary-black);
+    background: var(--primary-white);
+    font-weight: 400;
+    letter-spacing: -0.01em;
     overflow-x: hidden;
 }
 
@@ -75,10 +77,54 @@ body {
     gap: 8px;
 }
 
+.logo-new {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-new svg {
+    width: 60px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.logo-new:hover svg {
+    transform: scale(1.05);
+}
+
 .nav-logo h2 {
     font-size: 24px;
     font-weight: 600;
     color: var(--primary-black);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-black);
+    border: 2px solid var(--primary-black);
+}
+
+.btn-outline:hover {
+    background: var(--primary-black);
+    color: var(--primary-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .api-badge {
@@ -280,12 +326,22 @@ body {
 }
 
 .hero-title {
-    font-size: 64px;
+    font-size: 3.5rem;
     font-weight: 700;
-    line-height: 1.1;
-    color: var(--primary-black);
+    line-height: 1.2;
     margin-bottom: 24px;
-    letter-spacing: -0.02em;
+    color: var(--primary-black);
+    overflow: hidden;
+}
+
+.hero-title span {
+    display: inline-block;
+    animation: typewriter 2s steps(40, end) forwards;
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 .hero-subtitle {
@@ -302,19 +358,87 @@ body {
     flex-wrap: wrap;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-calm {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sleep-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+}
+
+.dot:nth-child(2) {
+    background: var(--accent-cyan);
+}
+
+.dot:nth-child(3) {
+    background: var(--accent-green);
+}
+
+.logo-modern {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-cube {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: cubeRotate 8s linear infinite;
+}
+
+@keyframes cubeRotate {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.cube-face {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+.nav-logo h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-black);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
 .btn {
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    transition: var(--transition);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
     border: none;
-    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary {
@@ -331,26 +455,14 @@ body {
 .btn-secondary {
     background: transparent;
     color: var(--primary-black);
-    border: 2px solid var(--border-grey);
+    border: 2px solid var(--primary-black);
 }
 
 .btn-secondary:hover {
-    border-color: var(--primary-black);
-    background: var(--light-grey);
+    background: var(--primary-black);
+    color: var(--primary-white);
     transform: translateY(-2px);
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--primary-black);
-    border: 2px solid var(--border-grey);
-    width: 100%;
-}
-
-.btn-outline:hover {
-    border-color: var(--primary-black);
-    background: var(--light-grey);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .hero-visual {
@@ -447,13 +559,45 @@ body {
 .feature-icon {
     width: 48px;
     height: 48px;
-    background: var(--primary-black);
+    background: var(--gradient-blue);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    color: var(--primary-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-icon::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-cyan), var(--accent-blue));
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.feature-icon:hover::before {
+    opacity: 1;
+}
+
+.feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+    z-index: 1;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.feature-icon:hover svg {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .feature-card h3 {
@@ -659,6 +803,25 @@ body {
 .documentation {
     padding: 100px 0;
     background: var(--gradient-light);
+    position: relative;
+}
+
+.documentation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.documentation > * {
+    position: relative;
+    z-index: 1;
 }
 
 .doc-grid {
@@ -667,17 +830,35 @@ body {
     gap: 32px;
 }
 
-.doc-card {
-    background: var(--primary-white);
-    padding: 32px;
+.feature-card {
+    background: white;
     border-radius: 16px;
-    border: 1px solid var(--border-grey);
-    transition: var(--transition);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.doc-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.feature-card:hover::before {
+    left: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(10, 25, 47, 0.15);
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .doc-card h3 {
@@ -966,12 +1147,19 @@ body {
     border-radius: 16px;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
 .hero-image:hover {
     transform: scale(1.05) translateY(-5px);
     box-shadow: 0 35px 100px rgba(0, 0, 0, 0.35);
     filter: brightness(1.05) contrast(1.02);
+    animation-play-state: paused;
 }
 
 @media (max-width: 768px) {
