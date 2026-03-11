@@ -10,385 +10,781 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        .api-docs {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 24px;
+        /* Spike API Inspired Documentation */
+        body {
+            background: #252525;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
         
-        .docs-header {
-            text-align: center;
-            margin-bottom: 60px;
+        .docs-layout {
+            display: flex;
+            min-height: 100vh;
         }
         
-        .docs-header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--dark-grey);
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: #1a1a1a;
+            border-right: 1px solid #333333;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
         }
         
-        .docs-header p {
-            font-size: 1.25rem;
-            color: var(--medium-grey);
-            max-width: 600px;
-            margin: 0 auto;
+        .sidebar-header {
+            padding: 24px 20px;
+            border-bottom: 1px solid #333333;
+            background: #1a1a1a;
         }
         
-        .endpoint-section {
-            margin-bottom: 60px;
-        }
-        
-        .endpoint-section h2 {
-            font-size: 2rem;
+        .sidebar-header h2 {
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--dark-grey);
-            border-bottom: 2px solid var(--accent-blue);
-            padding-bottom: 8px;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .endpoint {
-            background: white;
-            border: 1px solid var(--border-grey);
+        .sidebar-header .logo {
+            width: 32px;
+            height: 32px;
+            background: #4a5568;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        
+        .sidebar-nav {
+            padding: 20px 0;
+        }
+        
+        .nav-section {
+            margin-bottom: 32px;
+        }
+        
+        .nav-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0 20px;
+            margin-bottom: 12px;
+        }
+        
+        .nav-section ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-section li {
+            margin: 0;
+        }
+        
+        .nav-section a {
+            display: block;
+            padding: 10px 20px;
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+        
+        .nav-section a:hover {
+            background: #2a2a2a;
+            color: #ffffff;
+            border-left-color: #4a5568;
+        }
+        
+        .nav-section a.active {
+            background: #2a2a2a;
+            color: #ffffff;
+            border-left-color: #4a5568;
+            font-weight: 500;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px 60px;
+            max-width: calc(100% - 280px);
+        }
+        
+        .content-header {
+            margin-bottom: 40px;
+        }
+        
+        .content-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        
+        .content-header p {
+            font-size: 1.1rem;
+            color: #aaaaaa;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        
+        /* Enhanced Sections */
+        .doc-section {
+            margin-bottom: 60px;
+            background: #2a2a2a;
             border-radius: 12px;
-            padding: 24px;
+            padding: 40px;
+            border: 1px solid #333333;
+        }
+        
+        .doc-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
             margin-bottom: 24px;
-            box-shadow: var(--shadow-sm);
+            padding-bottom: 12px;
+            border-bottom: 1px solid #444444;
+        }
+        
+        .doc-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 32px 0 16px 0;
+        }
+        
+        .doc-section p {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        /* Enhanced Endpoint Cards */
+        .endpoint {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 24px;
+            position: relative;
         }
         
         .endpoint-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
         }
         
         .method {
-            padding: 4px 12px;
+            padding: 6px 12px;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .method.get {
-            background: #e7f5ff;
-            color: #0969da;
+            background: #10b981;
+            color: #ffffff;
         }
         
         .method.post {
-            background: #dcffe4;
-            color: #1a7f37;
+            background: #f59e0b;
+            color: #000000;
         }
         
         .endpoint-url {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
-            color: var(--dark-grey);
-            background: var(--light-grey);
+            font-size: 0.9rem;
+            color: #ffffff;
+            background: #0a0a0a;
             padding: 8px 12px;
             border-radius: 6px;
-        }
-        
-        .endpoint-description {
-            margin-bottom: 16px;
-            color: var(--medium-grey);
-        }
-        
-        .code-block {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
-            overflow-x: auto;
-            margin-bottom: 16px;
-        }
-        
-        .response-example {
-            background: #f8f9fa;
-            border-left: 4px solid var(--accent-blue);
-            padding: 16px;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--accent-blue);
-            text-decoration: none;
-            margin-bottom: 32px;
+            border: 1px solid #333333;
             font-weight: 500;
         }
         
+        /* Enhanced Code Blocks */
+        .code-block {
+            background: #0a0a0a;
+            color: #e2e8f0;
+            padding: 24px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #333333;
+            position: relative;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #333333;
+        }
+        
+        .copy-button {
+            background: #333333;
+            color: #ffffff;
+            border: 1px solid #444444;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .copy-button:hover {
+            background: #444444;
+            border-color: #555555;
+        }
+        
+        .copy-button.copied {
+            background: #10b981;
+            border-color: #10b981;
+        }
+        
+        .code-comment {
+            color: #6b7280;
+            font-style: italic;
+        }
+        
+        .code-key {
+            color: #f59e0b;
+            font-weight: 500;
+        }
+        
+        .code-string {
+            color: #10b981;
+        }
+        
+        .code-number {
+            color: #3b82f6;
+        }
+        
+        /* Enhanced Tables */
+        .parameter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .parameter-table th {
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #333333;
+        }
+        
+        .parameter-table td {
+            padding: 16px;
+            border-bottom: 1px solid #333333;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        
+        .parameter-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Enhanced Response Examples */
+        .response-example {
+            background: #1a1a1a;
+            border-left: 3px solid #4a5568;
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+        
+        .response-example strong {
+            display: block;
+            margin-bottom: 12px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* API Key Display */
+        .api-key-display {
+            background: #0a0a0a;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .api-key-text {
+            color: #cccccc;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #888888;
+            text-decoration: none;
+            margin-bottom: 32px;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            border: 1px solid #444444;
+            background: transparent;
+        }
+        
         .back-link:hover {
-            text-decoration: underline;
+            background: #333333;
+            color: #ffffff;
         }
         
         .back-link svg {
             margin-right: 8px;
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .api-docs {
-                padding: 60px 16px;
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
             
-            .docs-header h1 {
-                font-size: 2rem;
+            .sidebar.open {
+                transform: translateX(0);
             }
             
-            .endpoint-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1001;
+                background: #333333;
+                border: 1px solid #555555;
+                padding: 8px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu-toggle {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="api-docs">
-        <a href="index.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 12H5"/>
-                <path d="M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Website
-        </a>
-        
-        <div class="docs-header">
-            <h1>WeSleep API Documentation</h1>
-            <p>Complete API reference for integrating sleep intelligence into your healthcare insurance platform</p>
-        </div>
-        
-        <div class="endpoint-section">
-            <h2>🔗 Authentication</h2>
-            <div class="endpoint">
-                <div class="endpoint-description">
-                    All API requests require authentication using your API key. Include your API key in the request headers:
+    <div class="docs-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>
+                    <span class="logo">WS</span>
+                    WeSleep API
+                </h2>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Getting Started</div>
+                    <ul>
+                        <li><a href="#overview" class="active">Overview</a></li>
+                        <li><a href="#authentication">Authentication</a></li>
+                        <li><a href="#rate-limits">Rate Limits</a></li>
+                    </ul>
                 </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">API Endpoints</div>
+                    <ul>
+                        <li><a href="#wearable-data">Data Ingestion</a></li>
+                        <li><a href="#smart-alarm">Smart Alarm</a></li>
+                        <li><a href="#sleep-insights">Sleep Insights</a></li>
+                        <li><a href="#dashboard">Dashboard Integration</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Resources</div>
+                    <ul>
+                        <li><a href="#examples">Code Examples</a></li>
+                        <li><a href="#errors">Error Handling</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+        </button>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <a href="index.html" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5"/>
+                        <path d="M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Website
+                </a>
+                <h1>WeSleep API Documentation</h1>
+                <p>Professional sleep intelligence API for healthcare insurance providers in Catalonia and beyond. Our API provides comprehensive sleep data analysis, smart alarm predictions, and actionable health insights.</p>
+            </div>
+            
+            <!-- Overview Section -->
+            <section id="overview" class="doc-section">
+                <h2>Overview</h2>
+                <p>The WeSleep API enables healthcare insurance companies to integrate advanced sleep intelligence into their platforms. Our RESTful API provides real-time sleep data processing, predictive analytics, and health insights.</p>
+                
+                <h3>Key Features</h3>
+                <ul style="color: #cccccc; line-height: 1.8;">
+                    <li style="margin-bottom: 8px;">Real-time sleep data ingestion from wearable devices</li>
+                    <li style="margin-bottom: 8px;">Smart alarm optimization based on sleep patterns</li>
+                    <li style="margin-bottom: 8px;">Weekly and monthly health insights</li>
+                    <li style="margin-bottom: 8px;">Clinical anomaly detection and alerts</li>
+                    <li style="margin-bottom: 8px;">Ready-to-use frontend dashboard integration</li>
+                </ul>
+                
+                <h3>Quick Start</h3>
+                <div class="api-key-display">
+                    <span class="api-key-text">sk-ws-prod-1234567890abcdef</span>
+                    <button class="copy-button">Copy</button>
+                </div>
+            </section>
+            
+            <!-- Authentication Section -->
+            <section id="authentication" class="doc-section">
+                <h2>Authentication</h2>
+                <p>All API requests require authentication using your API key. Include your API key in the Authorization header as shown below.</p>
+                
+                <h3>Request Headers</h3>
                 <div class="code-block">
-Authorization: Bearer your-api-key
+                    <div class="code-header">
+                        <span>Authentication Headers</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+Authorization: Bearer your-api-key<br>
 Content-Type: application/json
                 </div>
-            </div>
-        </div>
-        
-        <div class="endpoint-section">
-            <h2>📥 Wearable Data Ingestion</h2>
+                
+                <h3>Getting Your API Key</h3>
+                <ol style="color: #cccccc; line-height: 1.8;">
+                    <li style="margin-bottom: 8px;">Sign up for a WeSleep account</li>
+                    <li style="margin-bottom: 8px;">Navigate to the API dashboard</li>
+                    <li style="margin-bottom: 8px;">Generate your production API key</li>
+                    <li style="margin-bottom: 8px;">Keep your API key secure and never share it publicly</li>
+                </ol>
+            </section>
             
-            <div class="endpoint">
-                <div class="endpoint-header">
-                    <span class="method post">POST</span>
-                    <span class="endpoint-url">/api/v1/webhooks/wearable/</span>
-                </div>
-                <div class="endpoint-description">
-                    Receive raw sleep data from wearable devices and store it for analysis
-                </div>
-                <div class="code-block">
-// Request Body
-{
-  "user_id": "user-123",
-  "timestamp": "2024-01-15T07:30:00Z",
-  "duration": 4800000,
-  "hypnogram": [
-    {"start_at": "2024-01-15T23:30:00Z", "end_at": "2024-01-15T23:45:00Z", "phase": "light"},
-    {"start_at": "2024-01-15T23:45:00Z", "end_at": "2024-01-16T01:30:00Z", "phase": "deep"},
-    {"start_at": "2024-01-16T01:30:00Z", "end_at": "2024-01-16T02:15:00Z", "phase": "rem"},
-    {"start_at": "2024-01-16T02:15:00Z", "end_at": "2024-01-16T07:30:00Z", "phase": "light"}
-  ],
-  "metrics": {
-    "hrv_sdnn": 45,
-    "avg_hr": 58,
-    "spo2": 96.5,
-    "sleep_efficiency": 92
-  }
-}
-                </div>
+            <!-- Rate Limits Section -->
+            <section id="rate-limits" class="doc-section">
+                <h2>Rate Limits</h2>
+                <p>To ensure optimal performance for all users, we implement rate limiting based on your subscription plan.</p>
+                
+                <h3>Rate Limit Tiers</h3>
+                <table class="parameter-table">
+                    <thead>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Requests/Minute</th>
+                            <th>Requests/Hour</th>
+                            <th>Features</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Starter</strong></td>
+                            <td>100</td>
+                            <td>6,000</td>
+                            <td>Basic endpoints</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Professional</strong></td>
+                            <td>500</td>
+                            <td>30,000</td>
+                            <td>All endpoints + priority</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enterprise</strong></td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                            <td>All endpoints + dedicated support</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Error Responses</h3>
                 <div class="response-example">
-                    <strong>Response:</strong>
+                    <strong>Rate Limit Exceeded Response:</strong>
                     <div class="code-block">
+                        <div class="code-header">
+                            <span>429 Response</span>
+                            <button class="copy-button">Copy</button>
+                        </div>
 {
-  "sleep_record_id": "550e8400-e29b-41d4-a716-446655440000",
-  "status": "success",
-  "message": "Sleep data stored successfully"
+  <span class="code-key">"error"</span>: <span class="code-string">"RATE_LIMIT_EXCEEDED"</span>,
+  <span class="code-key">"message"</span>: <span class="code-string">"Rate limit exceeded. Please try again later."</span>,
+  <span class="code-key">"details"</span>: {
+    <span class="code-key">"limit"</span>: <span class="code-number">100</span>,
+    <span class="code-key">"window"</span>: <span class="code-string">"60s"</span>,
+    <span class="code-key">"retry_after"</span>: <span class="code-number">45</span>
+  }
 }
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="endpoint-section">
-            <h2>⏰ Smart Alarm Prediction</h2>
+            </section>
             
-            <div class="endpoint">
-                <div class="endpoint-header">
-                    <span class="method get">GET</span>
-                    <span class="endpoint-url">/api/v1/alarm/predict/{patient_id}</span>
-                </div>
-                <div class="endpoint-description">
-                    Get the optimal wake-up time for a specific user based on their sleep patterns
-                </div>
-                <div class="code-block">
-// Query Parameters
-?target_time=07:30
-
-// Response
+            <!-- Wearable Data Section -->
+            <section id="wearable-data" class="doc-section">
+                <h2>Wearable Data Ingestion</h2>
+                <p>Receive raw sleep data from wearable devices and store it for analysis. This endpoint accepts sleep session data including hypnogram, metrics, and timestamps.</p>
+                
+                <div class="endpoint">
+                    <div class="endpoint-header">
+                        <span class="method post">POST</span>
+                        <span class="endpoint-url">/api/v1/webhooks/wearable/</span>
+                    </div>
+                    
+                    <h3>Request Body Parameters</h3>
+                    <table class="parameter-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>user_id</code></td>
+                                <td>String</td>
+                                <td>Unique identifier for user</td>
+                            </tr>
+                            <tr>
+                                <td><code>timestamp</code></td>
+                                <td>String (ISO 8601)</td>
+                                <td>Sleep session end time</td>
+                            </tr>
+                            <tr>
+                                <td><code>duration</code></td>
+                                <td>Number (milliseconds)</td>
+                                <td>Total sleep duration in milliseconds</td>
+                            </tr>
+                            <tr>
+                                <td><code>hypnogram</code></td>
+                                <td>Array</td>
+                                <td>Sleep phase transitions with timestamps</td>
+                            </tr>
+                            <tr>
+                                <td><code>metrics</code></td>
+                                <td>Object</td>
+                                <td>Sleep quality metrics and measurements</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>Example Request</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Request Body</span>
+                            <button class="copy-button">Copy</button>
+                        </div>
 {
-  "patient_id": "user-123",
-  "target_time": "07:30",
-  "optimal_time": "07:18",
-  "confidence_score": 0.87,
-  "window_start": "07:00",
-  "window_end": "07:30",
-  "reasoning": "User typically enters light sleep phase around 07:15-07:20 based on 7-night history"
+  <span class="code-key">"user_id"</span>: <span class="code-string">"user-123"</span>,
+  <span class="code-key">"timestamp"</span>: <span class="code-string">"2024-01-15T07:30:00Z"</span>,
+  <span class="code-key">"duration"</span>: <span class="code-number">4800000</span>,
+  <span class="code-key">"hypnogram"</span>: [...],
+  <span class="code-key">"metrics"</span>: {...}
 }
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="endpoint-section">
-            <h2>📊 Sleep Insights</h2>
+            </section>
             
-            <div class="endpoint">
-                <div class="endpoint-header">
-                    <span class="method get">GET</span>
-                    <span class="endpoint-url">/api/v1/insights/weekly/{patient_id}</span>
-                </div>
-                <div class="endpoint-description">
-                    Get weekly sleep analysis and engagement summaries for users
-                </div>
-                <div class="code-block">
+            <!-- Smart Alarm Section -->
+            <section id="smart-alarm" class="doc-section">
+                <h2>Smart Alarm Prediction</h2>
+                <p>Get the optimal wake-up time for a specific user based on their sleep patterns. The algorithm analyzes 7-night history to find the best wake-up moment within a 30-minute window.</p>
+                
+                <div class="endpoint">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <span class="endpoint-url">/api/v1/alarm/predict/{patient_id}</span>
+                    </div>
+                    
+                    <h3>Query Parameters</h3>
+                    <table class="parameter-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>target_time</code></td>
+                                <td>String (HH:MM)</td>
+                                <td>Yes</td>
+                                <td>Desired wake-up time</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>Example Response</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Response</span>
+                            <button class="copy-button">Copy</button>
+                        </div>
 {
-  "patient_id": "user-123",
-  "period": "weekly",
-  "current_week": {
-    "avg_hrv": 42,
-    "deep_sleep_hours": 2.3,
-    "sleep_efficiency": 91,
-    "total_sleep_duration": 7.8
-  },
-  "previous_week": {
-    "avg_hrv": 38,
-    "deep_sleep_hours": 2.1,
-    "sleep_efficiency": 89,
-    "total_sleep_duration": 7.5
-  },
-  "trends": {
-    "hrv_change": "+10.5%",
-    "deep_sleep_change": "+9.5%",
-    "efficiency_change": "+2.2%"
-  },
-  "weekly_recap": "Great progress this week! Your HRV has improved significantly, indicating better recovery. Keep maintaining this consistent sleep schedule.",
-  "daily_data": [
-    {"date": "2024-01-09", "sleep_score": 82, "duration": 7.2},
-    {"date": "2024-01-10", "sleep_score": 88, "duration": 7.8},
-    // ... more daily entries
-  ]
+  <span class="code-key">"patient_id"</span>: <span class="code-string">"user-123"</span>,
+  <span class="code-key">"target_time"</span>: <span class="code-string">"07:30"</span>,
+  <span class="code-key">"optimal_time"</span>: <span class="code-string">"07:18"</span>,
+  <span class="code-key">"confidence_score"</span>: <span class="code-number">0.87</span>,
+  <span class="code-key">"window_start"</span>: <span class="code-string">"07:00"</span>,
+  <span class="code-key">"window_end"</span>: <span class="code-string">"07:30"</span>
 }
+                    </div>
                 </div>
-            </div>
+            </section>
             
-            <div class="endpoint">
-                <div class="endpoint-header">
-                    <span class="method get">GET</span>
-                    <span class="endpoint-url">/api/v1/insights/monthly/{patient_id}</span>
-                </div>
-                <div class="endpoint-description">
-                    Get monthly anomaly detection and clinical referral recommendations
-                </div>
-                <div class="code-block">
+            <!-- Sleep Insights Section -->
+            <section id="sleep-insights" class="doc-section">
+                <h2>Sleep Insights</h2>
+                <p>Get weekly and monthly sleep analysis and engagement summaries for users. Provides motivational insights and progress tracking.</p>
+                
+                <div class="endpoint">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <span class="endpoint-url">/api/v1/insights/weekly/{patient_id}</span>
+                    </div>
+                    
+                    <h3>Example Response</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Weekly Insights</span>
+                            <button class="copy-button">Copy</button>
+                        </div>
 {
-  "patient_id": "user-123",
-  "period": "monthly",
-  "status": "alert",
-  "alert": {
-    "type": "clinical_referral",
-    "severity": "moderate",
-    "message": "We've observed a sustained 18% decrease in your HRV over the past 15 days, which may indicate increased stress or early signs of overtraining. We strongly recommend scheduling a consultation with your healthcare provider to discuss these changes.",
-    "metrics_affected": ["hrv", "sleep_efficiency"],
-    "recommendation": "schedule_consultation"
-  },
-  "analysis": {
-    "first_half_month": {"avg_hrv": 45, "efficiency": 93},
-    "second_half_month": {"avg_hrv": 37, "efficiency": 87},
-    "deterioration_threshold": 15
-  }
+  <span class="code-key">"patient_id"</span>: <span class="code-string">"user-123"</span>,
+  <span class="code-key">"period"</span>: <span class="code-string">"weekly"</span>,
+  <span class="code-key">"current_week"</span>: {...},
+  <span class="code-key">"previous_week"</span>: {...},
+  <span class="code-key">"trends"</span>: {...}
 }
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="endpoint-section">
-            <h2>�️ Frontend Dashboard Integration</h2>
-            <div class="endpoint">
-                <div class="endpoint-description">
-                    We provide a ready-to-use frontend dashboard that automatically displays sleep data from your API. No frontend development required - simply integrate with our API and the dashboard will visualize the data for you.
+            </section>
+            
+            <!-- Dashboard Integration Section -->
+            <section id="dashboard" class="doc-section">
+                <h2>Dashboard Integration</h2>
+                <p>We provide a ready-to-use frontend dashboard that automatically displays sleep data from your API. No frontend development required - simply integrate with our API and the dashboard will visualize the data for you.</p>
+                
+                <h3>Integration Steps</h3>
+                <div class="response-example">
+                    <ol style="color: #cccccc; line-height: 1.8;">
+                        <li style="margin-bottom: 8px;">Send sleep data via POST /api/v1/webhooks/wearable/</li>
+                        <li style="margin-bottom: 8px;">Dashboard automatically fetches and displays data</li>
+                        <li style="margin-bottom: 8px;">Your users see beautiful sleep analytics immediately</li>
+                    </ol>
                 </div>
-                <div class="code-block">
-// Integration Steps:
-// 1. Send sleep data via POST /api/v1/webhooks/wearable/
-// 2. Dashboard automatically fetches and displays data
-// 3. Your users see beautiful sleep analytics immediately
-
-// Example: Your backend sends data to WeSleep
-fetch('https://api.wesleep.pro/api/v1/webhooks/wearable/', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer your-api-key',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    user_id: 'patient-123',
-    timestamp: '2024-01-15T07:30:00Z',
-    // ... sleep data
-  })
-});
-
-// Dashboard automatically shows:
-// - Sleep scores and trends
-// - Smart alarm recommendations  
-// - Weekly/monthly insights
-// - Health anomaly alerts
-                </div>
-            </div>
-        </div>
-        
-        <div class="endpoint-section">
-            <h2>🚦 Rate Limits & Errors</h2>
-            <div class="endpoint">
-                <div class="endpoint-description">
-                    <strong>Rate Limits:</strong>
-                    <ul style="margin: 12px 0;">
-                        <li>Starter: 100 requests/minute</li>
-                        <li>Professional: 500 requests/minute</li>
-                        <li>Enterprise: Unlimited</li>
-                    </ul>
-                </div>
-                <div class="code-block">
-// Error Response Format
-{
-  "error": {
-    "code": "RATE_LIMIT_EXCEEDED",
-    "message": "Rate limit exceeded. Please try again later.",
-    "details": {
-      "limit": 100,
-      "window": "60s",
-      "retry_after": 45
-    }
-  }
-}
-
-// Common Error Codes
-400 - Bad Request
-401 - Unauthorized
-429 - Rate Limit Exceeded
-500 - Internal Server Error
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
+    
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update active state
+                    document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Close mobile menu
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('open');
+                    }
+                }
+            });
+        });
+        
+        // Add copy functionality to all copy buttons
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.closest('.code-block');
+                if (codeBlock) {
+                    const codeText = codeBlock.textContent.replace('Copy', '').trim();
+                    navigator.clipboard.writeText(codeText).then(() => {
+                        const originalText = this.textContent;
+                        this.textContent = 'Copied!';
+                        this.classList.add('copied');
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.classList.remove('copied');
+                        }, 2000);
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
