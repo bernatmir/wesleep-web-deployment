@@ -618,6 +618,14 @@ body {
     background: var(--gradient-light);
 }
 
+.integration#how-it-works {
+    background: #f8f9fa !important;
+}
+
+.integration#integration {
+    background: #f5f5f7 !important;
+}
+
 .integration-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1170,4 +1178,13 @@ body {
     .hero-image:hover {
         transform: scale(1.02) translateY(-2px);
     }
+}
+
+/* ESTILOS ADICIONALES PARA SECCIONES */
+#how-it-works {
+    background-color: #f8f9fa !important;
+}
+
+#integration {
+    background-color: #f5f5f7 !important;
 }

@@ -426,34 +426,235 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create mobile menu
     const mobileMenu = document.createElement('div');
     mobileMenu.className = 'mobile-menu';
-    mobileMenu.innerHTML = navMenu.innerHTML;
+    
+    // Add enhanced language selector to mobile menu
+    const mobileLangSelector = document.createElement('div');
+    mobileLangSelector.className = 'mobile-lang-selector';
+    mobileLangSelector.innerHTML = `
+        <div class="mobile-lang-toggle" id="mobileLangToggle">
+            <span class="mobile-lang-current">${currentLanguage.toUpperCase()}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <path d="M6 9l6 6 6-6"/>
+            </svg>
+        </div>
+        <div class="mobile-lang-dropdown" id="mobileLangDropdown">
+            <button class="mobile-lang-option" data-lang="ca">Català</button>
+            <button class="mobile-lang-option" data-lang="en">English</button>
+            <button class="mobile-lang-option" data-lang="es">Español</button>
+        </div>
+    `;
+    
+    mobileLangSelector.style.cssText = `
+        margin-bottom: 24px;
+        padding: 16px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    `;
+    
+    mobileMenu.innerHTML = '';
+    mobileMenu.appendChild(mobileLangSelector);
+    mobileMenu.appendChild(navMenu.cloneNode(true));
+    
     mobileMenu.style.cssText = `
         position: fixed;
         top: 72px;
         left: 0;
         right: 0;
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid #d2d2d7;
-        padding: 24px;
+        -webkit-backdrop-filter: blur(20px);
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 32px 24px;
         transform: translateY(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        max-height: 70vh;
+        overflow-y: auto;
     `;
     
-    // Style mobile menu items
-    const mobileMenuItems = mobileMenu.querySelectorAll('a');
-    mobileMenuItems.forEach(item => {
-        item.style.cssText = `
-            display: block;
-            padding: 12px 0;
+    document.body.appendChild(mobileMenu);
+    
+    // Style mobile language selector
+    const mobileLangToggle = document.getElementById('mobileLangToggle');
+    const mobileLangDropdown = document.getElementById('mobileLangDropdown');
+    const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
+    
+    if (mobileLangToggle) {
+        mobileLangToggle.style.cssText = `
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
             font-size: 16px;
-            border-bottom: 1px solid #f5f5f7;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         `;
+        
+        mobileLangToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileLangDropdown.classList.toggle('active');
+            mobileLangToggle.classList.toggle('active');
+        });
+    }
+    
+    if (mobileLangDropdown) {
+        mobileLangDropdown.style.cssText = `
+            margin-top: 12px;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        `;
+        
+        mobileLangDropdown.classList.add('active');
+        mobileLangDropdown.style.opacity = '0';
+        mobileLangDropdown.style.visibility = 'hidden';
+        mobileLangDropdown.style.transform = 'translateY(-10px)';
+    }
+    
+    mobileLangOptions.forEach(option => {
+        option.style.cssText = `
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 16px 20px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            color: #1d1d1f;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        `;
+        
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const selectedLang = this.getAttribute('data-lang');
+            updateLanguage(selectedLang);
+            
+            // Update current language display
+            const currentSpan = mobileLangToggle.querySelector('.mobile-lang-current');
+            if (currentSpan) {
+                currentSpan.textContent = selectedLang.toUpperCase();
+            }
+            
+            // Close dropdown
+            mobileLangDropdown.classList.remove('active');
+            mobileLangToggle.classList.remove('active');
+        });
+        
+        option.addEventListener('mouseenter', function() {
+            this.style.background = '#f5f5f7';
+            this.style.paddingLeft = '24px';
+        });
+        
+        option.addEventListener('mouseleave', function() {
+            this.style.background = 'transparent';
+            this.style.paddingLeft = '20px';
+        });
     });
     
-    document.body.appendChild(mobileMenu);
+    // Toggle mobile language dropdown
+    const mobileLangToggleBtn = document.getElementById('mobileLangToggle');
+    if (mobileLangToggleBtn) {
+        mobileLangToggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isActive = mobileLangDropdown.classList.contains('active');
+            
+            if (isActive) {
+                mobileLangDropdown.style.opacity = '0';
+                mobileLangDropdown.style.visibility = 'hidden';
+                mobileLangDropdown.style.transform = 'translateY(-10px)';
+                mobileLangDropdown.classList.remove('active');
+                mobileLangToggleBtn.classList.remove('active');
+            } else {
+                mobileLangDropdown.style.opacity = '1';
+                mobileLangDropdown.style.visibility = 'visible';
+                mobileLangDropdown.style.transform = 'translateY(0)';
+                mobileLangDropdown.classList.add('active');
+                mobileLangToggleBtn.classList.add('active');
+            }
+        });
+    }
+    
+    // Style mobile menu items (now targeting the cloned elements)
+    const mobileMenuItems = mobileMenu.querySelectorAll('.nav-menu a');
+    mobileMenuItems.forEach(item => {
+        // Hide Pricing menu item
+        if (item.textContent.includes('Pricing') || item.textContent.includes('Preus') || item.textContent.includes('Precios')) {
+            item.style.display = 'none';
+            return;
+        }
+        
+        item.style.cssText = `
+            display: block;
+            padding: 18px 20px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #1d1d1f;
+            text-decoration: none;
+            border-radius: 12px;
+            margin: 8px 0;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+        `;
+        
+        // Add hover effects
+        item.addEventListener('mouseenter', function() {
+            this.style.background = '#f5f5f7';
+            this.style.transform = 'translateX(8px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.background = 'transparent';
+            this.style.transform = 'translateX(0)';
+        });
+        
+        // Special styling for CTA button
+        if (item.classList.contains('nav-cta')) {
+            item.style.cssText = `
+                display: block;
+                padding: 18px 20px;
+                font-size: 18px;
+                font-weight: 600;
+                color: white;
+                text-decoration: none;
+                border-radius: 12px;
+                margin: 16px 0 8px 0;
+                transition: all 0.3s ease;
+                background: #000000;
+                text-align: center;
+                border: 2px solid #000000;
+            `;
+            
+            item.addEventListener('mouseenter', function() {
+                this.style.background = '#1d1d1f';
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.15)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.background = '#000000';
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        }
+    });
     
     navToggle.addEventListener('click', function() {
         const isOpen = mobileMenu.style.transform === 'translateY(0px)';
