@@ -6,24 +6,25 @@ const translations = {
         nav_pricing: "Pricing",
         nav_documentation: "Documentation",
         nav_get_started: "Get Started",
-        hero_title: "Sleep Intelligence for Healthcare Insurance",
-        hero_subtitle: "Our patented predictive system analyzes sleep patterns and identifies the optimal wake-up moment for each user. Transform raw wearable data into preventative health insights and daily wellness improvement for your insurance members.",
+        hero_title: "Sleep Intelligence API for Wellness Platforms",
+        hero_tagline: "We detect trends, not diseases.",
+        hero_subtitle: "Our proprietary algorithm learns each user's sleep patterns and wakes them at the optimal moment in their cycle. Integrate WeSleep into your app or platform — without building anything from scratch.",
         hero_view_docs: "View Documentation",
         hero_contact_sales: "Contact Sales",
-        features_title: "Powerful Sleep Analytics",
-        features_subtitle: "Comprehensive sleep data and insights to enhance your healthcare platform",
+        features_title: "Unique technology for Sleep Analytics",
+        features_subtitle: "Comprehensive sleep data and insights to enhance your wellness platform",
         feature1_title: "Sleep Cycle Analysis",
-        feature1_desc: "Detailed tracking of sleep stages, cycles, and patterns with millisecond precision",
+        feature1_desc: "Detailed tracking of sleep stages, cycles, and patterns from each user with a precision only achievable with WeSleep.",
         feature2_title: "Smart Predictive Alarm",
-        feature2_desc: "Patented algorithm analyzes user history to find the optimal wake-up moment within a 30-minute window, avoiding deep sleep phases and sleep inertia",
+        feature2_desc: "Proprietary algorithm 100% inhouse developed to analyze user history and find the optimal wake-up moment within a 30-minute window, avoiding deep sleep phases and sleep inertia",
         feature3_title: "Preventive Health Analysis",
         feature3_desc: "AI-powered analysis of HRV, sleep phases, and SpO₂ trends to detect health deterioration patterns before they become chronic conditions",
         feature4_title: "Dual-Layer Insights",
-        feature4_desc: "Weekly user engagement summaries and monthly clinical anomaly detection with proactive referral recommendations",
+        feature4_desc: "Weekly user engagement summaries and monthly anomaly detection and trend analysis with proactive referral recommendations",
         feature5_title: "White-Label Solution",
-        feature5_desc: "B2B SaaS model designed for seamless integration into healthcare insurance ecosystems with your branding",
+        feature5_desc: "B2B SaaS model designed for seamless integration into wellness platforms with available customization to your brand",
         feature6_title: "No-Diagnosis AI System",
-        feature6_desc: "Advanced LLM analysis with strict constraints to provide insights without medical diagnoses, acting as an early warning system",
+        feature6_desc: "Advanced LLM analysis with strict constraints to provide insights without medical diagnoses, acting as a wellness predictive system",
         integration_title: "Seamless Integration",
         integration_subtitle: "Get started in minutes with our developer-friendly API",
         integration_dev_title: "Developer-Friendly Features",
@@ -34,7 +35,7 @@ const translations = {
         integration_feature5: "Comprehensive error handling",
         integration_feature6: "Rate limiting and monitoring",
         pricing_title: "Transparent Pricing",
-        pricing_subtitle: "Flexible plans designed for healthcare providers and insurance companies",
+        pricing_subtitle: "Flexible plans designed for wellness providers and insurance companies",
         pricing_starter: "Starter",
         pricing_starter1: "Up to 1,000 users",
         pricing_starter2: "Basic sleep metrics",
@@ -59,7 +60,7 @@ const translations = {
         pricing_enterprise6: "White-label options",
         pricing_enterprise_cta: "Contact Sales",
         docs_title: "Comprehensive Documentation",
-        docs_subtitle: "Everything you need to integrate sleep intelligence into your platform",
+        docs_subtitle: "Everything you need to integrate WeSleep unique technology into your platform",
         docs_getting_started: "Getting Started",
         docs_getting_started_desc: "Quick start guide and authentication setup",
         docs_api_reference: "API Reference",
@@ -69,7 +70,7 @@ const translations = {
         docs_webhooks: "Webhooks",
         docs_webhooks_desc: "Real-time data updates and event notifications",
         docs_read_more: "Read More →",
-        contact_title: "Ready to Transform Healthcare?",
+        contact_title: "Ready to Transform Wellness?",
         contact_subtitle: "Get in touch with our team to discuss how WeSleep API can enhance your platform",
         contact_sales: "Sales",
         contact_support: "Technical Support",
@@ -86,7 +87,7 @@ const translations = {
         form_plan_enterprise: "Enterprise",
         form_message: "Tell us about your needs",
         form_submit: "Send Message",
-        footer_description: "Sleep intelligence for healthcare insurance platforms",
+        footer_description: "Sleep intelligence for wellness insurance platforms",
         footer_product: "Product",
         footer_features: "Features",
         footer_pricing: "Pricing",
@@ -102,9 +103,9 @@ const translations = {
         footer_terms: "Terms of Service",
         footer_compliance: "Compliance",
         footer_security: "Security",
-        business_title: "B2B SaaS for Healthcare Insurance",
-        business_subtitle: "White-label solution designed to enhance patient retention and reduce medical costs through preventative care",
-        business_feature1_title: "Patient Retention",
+        business_title: "B2B SaaS for Wellness Insurance",
+        business_subtitle: "White-label solution designed to enhance member engagement and reduce healthcare costs through preventative care",
+        business_feature1_title: "Member Engagement",
         business_feature1_desc: "Daily smart alarm usage creates high engagement with your insurance platform, building lasting member relationships",
         business_feature2_title: "Cost Reduction",
         business_feature2_desc: "Early detection through monthly anomaly alerts prevents expensive chronic treatments, reducing overall healthcare costs",
@@ -121,35 +122,36 @@ const translations = {
         nav_pricing: "Preus",
         nav_documentation: "Documentació",
         nav_get_started: "Començar",
-        hero_title: "Intel·ligència del Son per a Assegurances Sanitàries",
-        hero_subtitle: "El nostre sistema predictiu patentat analitza els patrons de son i identifica el moment òptim de despertar per a cada usuari. Transformeu les dades en brut dels wearables en informació de salut preventiva i millora diària del benestar per als vostres membres assegurats.",
+        hero_title: "API d'Intel·ligència del Son per a Plataformes de Benestar",
+        hero_tagline: "Detectem tendències, no malalties.",
+        hero_subtitle: "El nostre algoritme patentat aprèn els patrons de son de cada usuari i els desperta en el moment òptim del seu cicle. Integra WeSleep a la teva aplicació o plataforma, sense haver de crear tecnologia des de zero.",
         hero_view_docs: "Veure Documentació",
         hero_contact_sales: "Contactar Vendes",
-        features_title: "Anàlisi Poderosa del Son",
-        features_subtitle: "Dades i informació completes del son per millorar la vostra plataforma sanitària",
+        features_title: "Tecnologia única per a l'anàlisi del son",
+        features_subtitle: "Dades i informació completes del son per afegir valor a la vostra plataforma de benestar",
         feature1_title: "Anàlisi del Cicle del Son",
-        feature1_desc: "Seguiment detallat de les etapes, cicles i patrons del son amb precisió de mil·lisegons",
+        feature1_desc: "Seguiment detallat de les fases, cicles i patrons del son de cada usuari amb una precisió només aconseguida amb WeSleep.",
         feature2_title: "Alarma Intel·ligent Predictiva",
-        feature2_desc: "Algoritme patentat que analitza l'historial de l'usuari per trobar el moment òptim de despertar en una finestra de 30 minuts, evitant les fases de son profund i la inèrcia del son",
+        feature2_desc: "Algoritme propi, programat 100% inhouse, que analitza l'historial del l'usuari per trobar el moment òptim de despertar dins una finestra de 30 minuts, evitant les fases de son profund i la inèrcia del son",
         feature3_title: "Anàlisi de Salut Preventiva",
         feature3_desc: "Anàlisi impulsada per IA de tendències d'HRV, fases de son i SpO₂ per detectar patrons de deteriorament de la salut abans que es converteixin en condicions cròniques",
         feature4_title: "Informació de Doble Capa",
-        feature4_desc: "Resums setmanals d'interacció de l'usuari i detecció d'anomalies clíniques mensuals amb recomanacions proactives de derivació",
+        feature4_desc: "Resums setmanals d'interacció de l'usuari i detecció d'anomalies i tendències mensuals amb recomanacions proactives de derivació i execució",
         feature5_title: "Solució de Marca Blanca",
-        feature5_desc: "Model B2B SaaS dissenyat per a la integració perfecta en ecosistemes d'assegurances sanitàries amb la vostra marca",
+        feature5_desc: "Model B2B SaaS dissenyat per a la integració perfecta en ecosistemes i aplicacions de benestar amb la vostra marca",
         feature6_title: "Sistema IA Sense Diagnòstic",
-        feature6_desc: "Anàlisi avançada de LLM amb restriccions estrictes per proporcionar informació sense diagnòstics mèdics, actuant com a sistema d'alerta primerenca",
+        feature6_desc: "Anàlisi avançada de LLM amb restriccions estrictes per proporcionar informació sense diagnòstics mèdics, actuant com a sistema de predicció wellness",
         integration_title: "Integració Perfecta",
-        integration_subtitle: "Comenceu en minuts amb la nostra API amigable per a desenvolupadors",
-        integration_dev_title: "Característiques Amigables per a Desenvolupadors",
-        integration_feature1: "Arquitectura basada en FastAPI amb documentació clara",
-        integration_feature2: "Panell de control frontal llest per usar per a la visualització de dades",
+        integration_subtitle: "Comenceu en minuts amb la nostra API per a desenvolupadors",
+        integration_dev_title: "Característiques Clares per a Desenvolupadors",
+        integration_feature1: "Arquitectura basada en FastAPI amb documentació professional i clara",
+        integration_feature2: "Panell de control frontend llest per usar per a la visualització de dades",
         integration_feature3: "Suport de webhooks per a actualitzacions en temps real",
         integration_feature4: "Entorn sandbox per a proves",
-        integration_feature5: "Gestió d'errors completa",
+        integration_feature5: "Gestió completa d'errors amb documentació",
         integration_feature6: "Limitació de velocitat i monitoratge",
         pricing_title: "Preus Transparent",
-        pricing_subtitle: "Plans flexibles dissenyats per a proveïdors sanitaris i companyies d'assegurances",
+        pricing_subtitle: "Plans flexibles dissenyats per a proveïdors sanitaris i companyies de benestar",
         pricing_starter: "Inicial",
         pricing_starter1: "Fins a 1,000 usuaris",
         pricing_starter2: "Mètriques bàsiques del son",
@@ -174,7 +176,7 @@ const translations = {
         pricing_enterprise6: "Opcions de marca blanca",
         pricing_enterprise_cta: "Contactar Vendes",
         docs_title: "Documentació Completa",
-        docs_subtitle: "Tot el que necessiteu per integrar la intel·ligència del son a la vostra plataforma",
+        docs_subtitle: "Tot el que necessiteu per integrar la tecnologia única de WeSleep a la vostra plataforma",
         docs_getting_started: "Primers Passos",
         docs_getting_started_desc: "Guia ràpida i configuració d'autenticació",
         docs_api_reference: "Referència d'API",
@@ -201,7 +203,7 @@ const translations = {
         form_plan_enterprise: "Empresarial",
         form_message: "Explica'ns les teves necessitats",
         form_submit: "Enviar Missatge",
-        footer_description: "Intel·ligència del son per a plataformes d'assegurances sanitàries",
+        footer_description: "Intel·ligència del son per a plataformes de benestar",
         footer_product: "Producte",
         footer_features: "Característiques",
         footer_pricing: "Preus",
@@ -217,14 +219,14 @@ const translations = {
         footer_terms: "Termes del Servei",
         footer_compliance: "Compliment",
         footer_security: "Seguretat",
-        business_title: "B2B SaaS per a Assegurances Sanitàries",
+        business_title: "B2B SaaS per a Plataformes de Benestar",
         business_subtitle: "Solució de marca blanca dissenyada per millorar la retenció de pacients i reduir els costos mèdics mitjançant la cura preventiva",
         business_feature1_title: "Retenció de Pacients",
-        business_feature1_desc: "L'ús diari de l'alarma intel·ligent crea una alta participació a la vostra plataforma d'assegurances, construint relacions duradores amb els membres",
+        business_feature1_desc: "L'ús diari de l'alarma intel·ligent crea una alta participació a la vostra plataforma de benestar, construint relacions duradores amb els membres",
         business_feature2_title: "Reducció de Costos",
         business_feature2_desc: "La detecció primerenca mitjançant alertes d'anomalies mensuals prevé tractaments crònics cars, reduint els costos generals d'atenció sanitària",
         business_feature3_title: "Arquitectura Multi-Tenant",
-        business_feature3_desc: "Backend FastAPI amb PostgreSQL, suportant múltiples proveïdors d'assegurances amb aïllament complet de dades",
+        business_feature3_desc: "Backend FastAPI amb PostgreSQL, suportant múltiples proveïdors de benestar amb aïllament complet de dades",
         howitworks_title: "Com Funciona WeSleep",
         howitworks_subtitle: "De les dades dels wearables a informació de salut accionable",
         howitworks_dataflow: "Flux de Dades",
@@ -236,35 +238,36 @@ const translations = {
         nav_pricing: "Precios",
         nav_documentation: "Documentación",
         nav_get_started: "Comenzar",
-        hero_title: "Inteligencia del Sueño para Seguros de Salud",
-        hero_subtitle: "Nuestro sistema predictivo patentado analiza los patrones de sueño e identifica el momento óptimo de despertar para cada usuario. Transforme los datos brutos de los wearables en información de salud preventiva y mejora diaria del bienestar para sus miembros asegurados.",
+        hero_title: "API de Inteligencia del Sueño para Plataformas de Bienestar",
+        hero_tagline: "Detectamos tendencias, no enfermedades.",
+        hero_subtitle: "Nuestro algoritmo patentado aprende los patrones de sueño de cada usuario y lo despierta en el momento óptimo de su ciclo. Integra WeSleep en tu aplicación o plataforma, sin necesidad de crear tecnología desde cero.",
         hero_view_docs: "Ver Documentación",
         hero_contact_sales: "Contactar Ventas",
-        features_title: "Análisis Potente del Sueño",
-        features_subtitle: "Datos e información completa del sueño para mejorar su plataforma de salud",
+        features_title: "Tecnología única para el análisis del sueño",
+        features_subtitle: "Datos e información completa del sueño para añadir valor a su plataforma de bienestar",
         feature1_title: "Análisis del Ciclo del Sueño",
-        feature1_desc: "Seguimiento detallado de etapas, ciclos y patrones del sueño con precisión de milisegundos",
+        feature1_desc: "Seguimiento detallado de fases, ciclos y patrones del sueño de cada usuario con una precisión conseguida solo en WeSleep.",
         feature2_title: "Alarma Inteligente Predictiva",
-        feature2_desc: "Algoritmo patentado que analiza el historial del usuario para encontrar el momento óptimo de despertar en una ventana de 30 minutos, evitando las fases de sueño profundo y la inercia del sueño",
+        feature2_desc: "Algoritmo propio, programado 100% inhouse que analiza el historial y los patrones del usuario para encontrar el momento óptimo de despertar en una ventana de 30 minutos, evitando las fases de sueño profundo y la inercia del sueño",
         feature3_title: "Análisis de Salud Preventivo",
-        feature3_desc: "Análisis impulsado por IA de tendencias de HRV, fases de sueño y SpO₂ para detectar patrones de deterioro de la salud antes de que se conviertan en condiciones crónicas",
+        feature3_desc: "Análisis impulsado por IA de tendencias de HRV, fases de sueño y SpO₂ para detectar patrones de deterioro de la salud antes de que se conviertan en condiciones crónicas.",
         feature4_title: "Información de Doble Capa",
-        feature4_desc: "Resúmenes semanales de interacción del usuario y detección de anomalías clínicas mensuales con recomendaciones proactivas de derivación",
+        feature4_desc: "Resúmenes semanales de interacción del usuario y detección de anomalías y tendencias mensuales con recomendaciones proactivas de derivación y ejecución.",
         feature5_title: "Solución de Marca Blanca",
-        feature5_desc: "Modelo B2B SaaS diseñado para la integración perfecta en ecosistemas de seguros de salud con su marca",
+        feature5_desc: "Modelo B2B SaaS diseñado para la integración en ecosistemas y aplicaciones de bienestar, absolutamente personalizado con su marca",
         feature6_title: "Sistema IA Sin Diagnóstico",
-        feature6_desc: "Análisis avanzado de LLM con restricciones estrictas para proporcionar información sin diagnósticos médicos, actuando como sistema de alerta temprana",
+        feature6_desc: "Análisis avanzado de LLM con restricciones estrictas para proporcionar información de bienestar sin diagnósticos médicos, actuando como sistema de predicción wellness.",
         integration_title: "Integración Perfecta",
-        integration_subtitle: "Comience en minutos con nuestra API amigable para desarrolladores",
-        integration_dev_title: "Características Amigables para Desarrolladores",
-        integration_feature1: "Arquitectura basada en FastAPI con documentación clara",
-        integration_feature2: "Panel de control frontal listo para usar para la visualización de datos",
+        integration_subtitle: "Comience en minutos con nuestra API para desarrolladores",
+        integration_dev_title: "Características Claras para Desarrolladores",
+        integration_feature1: "Arquitectura basada en FastAPI con documentación profesional y clara",
+        integration_feature2: "Panel de control frontend listo para usar para la visualización de datos",
         integration_feature3: "Soporte de webhooks para actualizaciones en tiempo real",
         integration_feature4: "Entorno sandbox para pruebas",
-        integration_feature5: "Manejo completo de errores",
+        integration_feature5: "Manejo de errores completo y documentado",
         integration_feature6: "Limitación de velocidad y monitoreo",
         pricing_title: "Precios Transparente",
-        pricing_subtitle: "Planes flexibles diseñados para proveedores de salud y compañías de seguros",
+        pricing_subtitle: "Planes flexibles diseñados para proveedores de salud y empresas de bienestar",
         pricing_starter: "Inicial",
         pricing_starter1: "Hasta 1,000 usuarios",
         pricing_starter2: "Métricas básicas del sueño",
@@ -289,7 +292,7 @@ const translations = {
         pricing_enterprise6: "Opciones de marca blanca",
         pricing_enterprise_cta: "Contactar Ventas",
         docs_title: "Documentación Completa",
-        docs_subtitle: "Todo lo que necesita para integrar inteligencia del sueño en su plataforma",
+        docs_subtitle: "Todo lo que necesita para integrar la tecnología única de WeSleep en su plataforma",
         docs_getting_started: "Primeros Pasos",
         docs_getting_started_desc: "Guía rápida y configuración de autenticación",
         docs_api_reference: "Referencia de API",
@@ -332,22 +335,22 @@ const translations = {
         footer_terms: "Términos del Servicio",
         footer_compliance: "Cumplimiento",
         footer_security: "Seguridad",
-        business_title: "B2B SaaS para Seguros de Salud",
-        business_subtitle: "Solución de marca blanca diseñada para mejorar la retención de pacientes y reducir costos médicos mediante atención preventiva",
-        business_feature1_title: "Retención de Pacientes",
-        business_feature1_desc: "El uso diario de la alarma inteligente crea una alta participación en su plataforma de seguros, construyendo relaciones duraderas con los miembros",
-        business_feature2_title: "Reducción de Costos",
-        business_feature2_desc: "La detección temprana mediante alertas de anomalías mensuales previene tratamientos crónicos costosos, reduciendo los costos generales de atención médica",
+        business_title: "B2B SaaS para Plataformas de Bienestar",
+        business_subtitle: "Solución de marca blanca diseñada para implementación con tu marca, mejorando el bienestar de los usuarios y reduciendo riesgos de salud mediante metodos preventivos",
+        business_feature1_title: "Retención de pacientes",
+        business_feature1_desc: "El uso diario de la alarma inteligente aprende los patrones de descanso de cada usuario, construyendo datos duraderos y fiables con el tiempo",
+        business_feature2_title: "Reducción de Costes",
+        business_feature2_desc: "La detección temprana mediante alertas preventivas semanales y mensuales evitan tendencias de malestares crónicos y costosos.",
         business_feature3_title: "Arquitectura Multi-Tenant",
-        business_feature3_desc: "Backend FastAPI con PostgreSQL, soportando múltiples proveedores de seguros con aislamiento completo de datos",
+        business_feature3_desc: "Backend FastAPI con PostgreSQL, soportando múltiples proveedores de bienestar con aislamiento completo de datos",
         howitworks_title: "Cómo Funciona WeSleep",
-        howitworks_subtitle: "De datos de wearables a información de salud accionable",
+        howitworks_subtitle: "WeSleep convierte datos en bruto de wearables a información de su descanso fiable y robusta.",
         howitworks_dataflow: "Flujo de Datos",
         howitworks_metrics_title: "Métricas Clave Analizadas",
     }
 };
 
-let currentLanguage = localStorage.getItem('selectedLanguage') || 'ca';
+let currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
 
 function updateLanguage(lang) {
     currentLanguage = lang;
@@ -426,235 +429,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create mobile menu
     const mobileMenu = document.createElement('div');
     mobileMenu.className = 'mobile-menu';
-    
-    // Add enhanced language selector to mobile menu
-    const mobileLangSelector = document.createElement('div');
-    mobileLangSelector.className = 'mobile-lang-selector';
-    mobileLangSelector.innerHTML = `
-        <div class="mobile-lang-toggle" id="mobileLangToggle">
-            <span class="mobile-lang-current">${currentLanguage.toUpperCase()}</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-                <path d="M6 9l6 6 6-6"/>
-            </svg>
-        </div>
-        <div class="mobile-lang-dropdown" id="mobileLangDropdown">
-            <button class="mobile-lang-option" data-lang="ca">Català</button>
-            <button class="mobile-lang-option" data-lang="en">English</button>
-            <button class="mobile-lang-option" data-lang="es">Español</button>
-        </div>
-    `;
-    
-    mobileLangSelector.style.cssText = `
-        margin-bottom: 24px;
-        padding: 16px;
-        background: rgba(0, 0, 0, 0.05);
-        border-radius: 12px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-    `;
-    
-    mobileMenu.innerHTML = '';
-    mobileMenu.appendChild(mobileLangSelector);
-    mobileMenu.appendChild(navMenu.cloneNode(true));
-    
+    mobileMenu.innerHTML = navMenu.innerHTML;
     mobileMenu.style.cssText = `
         position: fixed;
         top: 72px;
         left: 0;
         right: 0;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        padding: 32px 24px;
+        border-bottom: 1px solid #d2d2d7;
+        padding: 24px;
         transform: translateY(-100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        max-height: 70vh;
-        overflow-y: auto;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     `;
     
-    document.body.appendChild(mobileMenu);
-    
-    // Style mobile language selector
-    const mobileLangToggle = document.getElementById('mobileLangToggle');
-    const mobileLangDropdown = document.getElementById('mobileLangDropdown');
-    const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
-    
-    if (mobileLangToggle) {
-        mobileLangToggle.style.cssText = `
-            background: #000000;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            padding: 16px 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        `;
-        
-        mobileLangToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileLangDropdown.classList.toggle('active');
-            mobileLangToggle.classList.toggle('active');
-        });
-    }
-    
-    if (mobileLangDropdown) {
-        mobileLangDropdown.style.cssText = `
-            margin-top: 12px;
-            background: white;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        `;
-        
-        mobileLangDropdown.classList.add('active');
-        mobileLangDropdown.style.opacity = '0';
-        mobileLangDropdown.style.visibility = 'hidden';
-        mobileLangDropdown.style.transform = 'translateY(-10px)';
-    }
-    
-    mobileLangOptions.forEach(option => {
-        option.style.cssText = `
-            width: 100%;
-            background: transparent;
-            border: none;
-            padding: 16px 20px;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            color: #1d1d1f;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        `;
-        
-        option.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const selectedLang = this.getAttribute('data-lang');
-            updateLanguage(selectedLang);
-            
-            // Update current language display
-            const currentSpan = mobileLangToggle.querySelector('.mobile-lang-current');
-            if (currentSpan) {
-                currentSpan.textContent = selectedLang.toUpperCase();
-            }
-            
-            // Close dropdown
-            mobileLangDropdown.classList.remove('active');
-            mobileLangToggle.classList.remove('active');
-        });
-        
-        option.addEventListener('mouseenter', function() {
-            this.style.background = '#f5f5f7';
-            this.style.paddingLeft = '24px';
-        });
-        
-        option.addEventListener('mouseleave', function() {
-            this.style.background = 'transparent';
-            this.style.paddingLeft = '20px';
-        });
-    });
-    
-    // Toggle mobile language dropdown
-    const mobileLangToggleBtn = document.getElementById('mobileLangToggle');
-    if (mobileLangToggleBtn) {
-        mobileLangToggleBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const isActive = mobileLangDropdown.classList.contains('active');
-            
-            if (isActive) {
-                mobileLangDropdown.style.opacity = '0';
-                mobileLangDropdown.style.visibility = 'hidden';
-                mobileLangDropdown.style.transform = 'translateY(-10px)';
-                mobileLangDropdown.classList.remove('active');
-                mobileLangToggleBtn.classList.remove('active');
-            } else {
-                mobileLangDropdown.style.opacity = '1';
-                mobileLangDropdown.style.visibility = 'visible';
-                mobileLangDropdown.style.transform = 'translateY(0)';
-                mobileLangDropdown.classList.add('active');
-                mobileLangToggleBtn.classList.add('active');
-            }
-        });
-    }
-    
-    // Style mobile menu items (now targeting the cloned elements)
-    const mobileMenuItems = mobileMenu.querySelectorAll('.nav-menu a');
+    // Style mobile menu items
+    const mobileMenuItems = mobileMenu.querySelectorAll('a');
     mobileMenuItems.forEach(item => {
-        // Hide Pricing menu item
-        if (item.textContent.includes('Pricing') || item.textContent.includes('Preus') || item.textContent.includes('Precios')) {
-            item.style.display = 'none';
-            return;
-        }
-        
         item.style.cssText = `
             display: block;
-            padding: 18px 20px;
-            font-size: 18px;
-            font-weight: 500;
-            color: #1d1d1f;
-            text-decoration: none;
-            border-radius: 12px;
-            margin: 8px 0;
-            transition: all 0.3s ease;
-            border: none;
-            background: transparent;
+            padding: 12px 0;
+            font-size: 16px;
+            border-bottom: 1px solid #f5f5f7;
         `;
-        
-        // Add hover effects
-        item.addEventListener('mouseenter', function() {
-            this.style.background = '#f5f5f7';
-            this.style.transform = 'translateX(8px)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.background = 'transparent';
-            this.style.transform = 'translateX(0)';
-        });
-        
-        // Special styling for CTA button
-        if (item.classList.contains('nav-cta')) {
-            item.style.cssText = `
-                display: block;
-                padding: 18px 20px;
-                font-size: 18px;
-                font-weight: 600;
-                color: white;
-                text-decoration: none;
-                border-radius: 12px;
-                margin: 16px 0 8px 0;
-                transition: all 0.3s ease;
-                background: #000000;
-                text-align: center;
-                border: 2px solid #000000;
-            `;
-            
-            item.addEventListener('mouseenter', function() {
-                this.style.background = '#1d1d1f';
-                this.style.transform = 'translateY(-2px)';
-                this.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.15)';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.background = '#000000';
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'none';
-            });
-        }
     });
+    
+    document.body.appendChild(mobileMenu);
     
     navToggle.addEventListener('click', function() {
         const isOpen = mobileMenu.style.transform === 'translateY(0px)';
@@ -785,12 +587,9 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
+            // Get form data (FormData format, as recommended by Web3Forms)
             const formData = new FormData(this);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
+            formData.append("access_key", "476c8876-0e5c-43ff-b925-8a2cb7b9d6e4");
             
             // Show success message
             const button = this.querySelector('button[type="submit"]');
@@ -798,24 +597,42 @@ document.addEventListener('DOMContentLoaded', function() {
             button.textContent = 'Sending...';
             button.disabled = true;
             
-            // Simulate form submission
-            setTimeout(() => {
-                button.textContent = 'Message Sent!';
-                button.style.background = '#28a745';
-                
-                // Reset form
-                this.reset();
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.background = '';
-                    button.disabled = false;
-                }, 3000);
-            }, 1500);
+            sendContactRequest(formData)
+                .then(() => {
+                    button.textContent = 'Message Sent!';
+                    button.style.background = '#28a745';
+                    
+                    // Reset form
+                    this.reset();
+                })
+                .catch(() => {
+                    button.textContent = 'Send Failed';
+                    button.style.background = '#dc3545';
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.background = '';
+                        button.disabled = false;
+                    }, 3000);
+                });
         });
     }
 });
+
+function sendContactRequest(formData) {
+    return fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (!result.success) {
+            throw new Error(result.message || 'Contact request failed');
+        }
+        return result;
+    });
+}
 
 // Add hover effect to cards
 document.addEventListener('DOMContentLoaded', function() {

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeSleep API - Sleep Intelligence for Healthcare Insurance</title>
-    <meta name="description" content="Integrate advanced sleep tracking and analysis into your healthcare insurance platform with WeSleep API">
+    <title>WeSleep API - Sleep Intelligence for Wellness Platforms</title>
+    <meta name="description" content="Integrate advanced sleep tracking and analysis into your wellness platform with WeSleep API">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="Favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,6 @@
             <ul class="nav-menu">
                 <li><a href="#features" data-translate="nav_features">Features</a></li>
                 <li><a href="#integration" data-translate="nav_integration">Integration</a></li>
-               <!-- <li><a href="#pricing" data-translate="nav_pricing">Pricing</a></li>-->
                 <li><a href="#documentation" data-translate="nav_documentation">Documentation</a></li>
                 <li><a href="#contact" class="nav-cta" data-translate="nav_get_started">Get Started</a></li>
                 <li class="language-selector">
@@ -51,15 +50,18 @@
     <header class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title" data-translate="hero_title">Sleep Intelligence for Healthcare Insurance</h1>
-                <p class="hero-subtitle" data-translate="hero_subtitle">Our patented predictive system analyzes sleep patterns and identifies the optimal wake-up moment for each user. Transform raw wearable data into preventative health insights and daily wellness improvement for your insurance members.</p>
+                <h1 class="hero-title" data-translate="hero_title">WeSleep API - Sleep Intelligence for Wellness Platforms</h1>
+                <p class="hero-tagline" data-translate="hero_tagline">Detectamos tendencias, no enfermedades.</p>
+                <p class="hero-subtitle" data-translate="hero_subtitle">Our proprietary algorithm learns each user's sleep patterns and wakes them at the optimal moment in their cycle. Integrate WeSleep into your app or platform — without building anything from scratch.
+
+</p>
                 <div class="hero-actions">
                     <a href="#documentation" class="btn btn-primary" data-translate="hero_view_docs">View Documentation</a>
                     <a href="#contact" class="btn btn-secondary" data-translate="hero_contact_sales">Contact Sales</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <img src="images/iPad peview.png" alt="WeSleep iPad Dashboard" class="hero-image">
+                <img src="images/iPad short peview.png" alt="WeSleep iPad Dashboard" class="hero-image">
             </div>
         </div>
     </header>
@@ -139,7 +141,7 @@
     <section id="business-model" class="features">
         <div class="container">
             <div class="section-header">
-                <h2 data-translate="business_title">B2B SaaS for Healthcare Insurance</h2>
+                <h2 data-translate="business_title">B2B SaaS for Wellness Platforms</h2>
                 <p data-translate="business_subtitle">White-label solution designed to enhance patient retention and reduce medical costs through preventative care</p>
             </div>
             <div class="features-grid">
@@ -193,29 +195,29 @@
                     </div>
                     <pre><code>1. Wearable Data Ingestion
    POST /api/v1/webhooks/wearable/
-   → Raw sleep data stored as JSONB
+   → Raw sleep data securely ingested and normalized
 
 2. Smart Alarm Prediction
-   GET /api/v1/alarm/predict/{patient_id}
-   → 30-minute window optimization
+   POST /api/v1/sleep/smart-alarm
+   → Optimal wake-up window calculated in real time
 
 3. Weekly User Insights
-   GET /api/v1/insights/weekly/{patient_id}
-   → Motivational engagement summaries
+   GET /api/v1/insights/weekly/{user_id}
+   → Personalized engagement summaries
 
-4. Monthly Anomaly Detection
-   GET /api/v1/insights/monthly/{patient_id}
-   → Clinical referral alerts</code></pre>
+4. Monthly Trend Detection
+   GET /api/v1/insights/monthly/{user_id}
+   → Sustained pattern alerts, no diagnosis</code></pre>
                 </div>
                 <div class="integration-features">
                     <h3 data-translate="howitworks_metrics_title">Key Metrics Analyzed</h3>
                     <ul>
                         <li><strong>Heart Rate Variability (HRV)</strong> - Recovery and stress indicator</li>
                         <li><strong>Sleep Phases Distribution</strong> - Light, deep, and REM patterns</li>
-                        <li><strong>Blood Oxygen (SpO₂)</strong> - Apnea detection support</li>
+                        <li><strong>Blood Oxygen (SpO₂)</strong> - Respiratory quality indicator</li>
                         <li><strong>Sleep Efficiency</strong> - Quality vs time in bed ratio</li>
                         <li><strong>Trend Analysis</strong> - Intra-month deterioration patterns</li>
-                        <li><strong>AI-Powered Reasoning</strong> - Groq LLM with no-diagnosis constraints</li>
+                        <li><strong>AI-Powered Reasoning</strong> - Proprietary sleep-intelligence engine with built-in no-diagnosis safeguards</li>
                     </ul>
                 </div>
             </div>
@@ -235,23 +237,21 @@
                         <span class="code-language">JavaScript</span>
                         <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code>const WeSleepAPI = require('wesleep-api');
-
-const client = new WeSleepAPI({
-  apiKey: 'your-api-key',
-  baseURL: 'https://api.wesleep.pro'
+                    <pre><code>const response = await fetch('https://api.wesleep.pro/smart-alarm', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    sleep_record_id: '0134ff3c-3f60-8c46-8e4e-c0dd218c4e3a',
+    target_time: '2026-02-12T07:00:00Z'
+  })
 });
 
-// Get sleep data for a user
-const sleepData = await client.sleep.getUserData({
-  userId: 'user-123',
-  dateRange: {
-    start: '2024-01-01',
-    end: '2024-01-31'
-  }
-});
-
-console.log(sleepData);</code></pre>
+const alarm = await response.json();
+console.log(alarm);
+// { suggested_time: "2026-02-12T06:45:00Z", confidence: 0.9, ... }</code></pre>
                 </div>
                 <div class="integration-features">
                     <h3 data-translate="integration_dev_title">Developer-Friendly Features</h3>
@@ -259,86 +259,10 @@ console.log(sleepData);</code></pre>
                         <li data-translate="integration_feature1">FastAPI-based architecture with clear documentation</li>
                         <li data-translate="integration_feature2">Ready-to-use frontend dashboard for data visualization</li>
                         <li>Webhook support for real-time updates</li>
-                        <li>Sandbox environment for testing</li>
                         <li>Comprehensive error handling</li>
                         <li>Rate limiting and monitoring</li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <!-- TEMPORARILY HIDDEN - Pricing Title
-            <div class="section-header">
-                <h2 data-translate="pricing_title">Transparent Pricing</h2>
-                <p data-translate="pricing_subtitle">Flexible plans designed for healthcare providers and insurance companies</p>
-            </div>
-            -->
-            <div class="pricing-grid">
-                <!-- TEMPORARILY HIDDEN - Starter Plan €900
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 data-translate="pricing_starter">Starter</h3>
-                        <div class="price">
-                            <span class="currency">€</span>
-                            <span class="amount">900</span>
-                            <span class="period">/month</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li data-translate="pricing_starter1">Up to 1,000 users</li>
-                        <li data-translate="pricing_starter2">Basic sleep metrics</li>
-                        <li data-translate="pricing_starter3">Email support</li>
-                        <li data-translate="pricing_starter4">API access</li>
-                        <li data-translate="pricing_starter5">Monthly reports</li>
-                    </ul>
-                    <button class="btn btn-outline" data-translate="pricing_starter_cta">Get Started</button>
-                </div>
-                -->
-                <!-- TEMPORARILY HIDDEN - Professional Plan €1,250
-                <div class="pricing-card featured">
-                    <div class="pricing-header">
-                        <span class="popular-badge">Most Popular</span>
-                        <h3 data-translate="pricing_professional">Professional</h3>
-                        <div class="price">
-                            <span class="currency">€</span>
-                            <span class="amount">1,250</span>
-                            <span class="period">/month</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li data-translate="pricing_pro1">Up to 10,000 users</li>
-                        <li data-translate="pricing_pro2">Advanced sleep analytics</li>
-                        <li data-translate="pricing_pro3">Priority support</li>
-                        <li data-translate="pricing_pro4">Custom integrations</li>
-                        <li data-translate="pricing_pro5">Real-time monitoring</li>
-                        <li data-translate="pricing_pro6">AI-powered insights</li>
-                    </ul>
-                    <button class="btn btn-primary" data-translate="pricing_pro_cta">Get Started</button>
-                </div>
-                -->
-                <!-- TEMPORARILY HIDDEN - Enterprise Plan
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 data-translate="pricing_enterprise">Enterprise</h3>
-                        <div class="price">
-                            <span class="currency">Contact Us</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li data-translate="pricing_enterprise1">Unlimited users</li>
-                        <li data-translate="pricing_enterprise2">Custom features</li>
-                        <li data-translate="pricing_enterprise3">Dedicated support</li>
-                        <li data-translate="pricing_enterprise4">On-premise deployment</li>
-                        <li data-translate="pricing_enterprise5">Custom SLA</li>
-                        <li data-translate="pricing_enterprise6">White-label options</li>
-                    </ul>
-                    <button class="btn btn-outline" data-translate="pricing_enterprise_cta">Contact Sales</button>
-                </div>
-                -->
             </div>
         </div>
     </section>
@@ -375,101 +299,101 @@ console.log(sleepData);</code></pre>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="contact_title">Ready to Transform Healthcare?</h2>
-                <p data-translate="contact_subtitle">Get in touch with our team to discuss how WeSleep API can enhance your platform</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3 data-translate="contact_sales">Sales</h3>
-                        <p>bernat@wesleep.pro</p>
-                        <p>+34 689 445 125</p>
-                        <p>jaume@wesleep.pro</p>
-                        <p>+34 639 755 988</p>
-                        
+<div class="contact-footer-wrapper">
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="contact_title">Ready to Transform Healthcare?</h2>
+                    <p data-translate="contact_subtitle">Get in touch with our team to discuss how WeSleep API can enhance your platform</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3 data-translate="contact_sales">Sales</h3>
+                            <p>bernat@wesleep.pro</p>
+                            <p>+34 689 445 125</p>
+                            <p>jaume@wesleep.pro</p>
+                            <p>+34 639 755 988</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 data-translate="contact_support">Technical Support</h3>
+                            <p>bernat@wesleep.pro</p>
+                            <p data-translate="contact_support_desc">24/7 Enterprise Support</p>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <h3 data-translate="contact_support">Technical Support</h3>
-                        <p>bernat@wesleep.pro</p>
-                        <p data-translate="contact_support_desc">24/7 Enterprise Support</p>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" data-translate-placeholder="form_name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email Address" data-translate-placeholder="form_email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="company" placeholder="Company Name" data-translate-placeholder="form_company" required>
+                            </div>
+                            <div class="form-group">
+                                <select name="plan" required>
+                                    <option value="" disabled selected data-translate="form_plan_select">Select Plan</option>
+                                    <option value="starter" data-translate="form_plan_starter">Starter</option>
+                                    <option value="professional" data-translate="form_plan_professional">Professional</option>
+                                    <option value="enterprise" data-translate="form_plan_enterprise">Enterprise</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Tell us about your needs" data-translate-placeholder="form_message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-translate="form_submit">Send Message</button>
+                        </form>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" data-translate-placeholder="form_name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email Address" data-translate-placeholder="form_email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Company Name" data-translate-placeholder="form_company" required>
-                        </div>
-                        <div class="form-group">
-                            <select>
-                                <option data-translate="form_plan_select">Select Plan</option>
-                                <option data-translate="form_plan_starter">Starter</option>
-                                <option data-translate="form_plan_professional">Professional</option>
-                                <option data-translate="form_plan_enterprise">Enterprise</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Tell us about your needs" data-translate-placeholder="form_message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" data-translate="form_submit">Send Message</button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>WeSleep API</h3>
-                    <p data-translate="footer_description">Sleep intelligence for healthcare insurance platforms</p>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3>WeSleep API</h3>
+                        <p data-translate="footer_description">Sleep intelligence for healthcare insurance platforms</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 data-translate="footer_product">Product</h4>
+                            <ul>
+                                <li><a href="#features" data-translate="footer_features">Features</a></li>
+                                <li><a href="#documentation" data-translate="footer_documentation">Documentation</a></li>
+                                <li><a href="#" data-translate="footer_api_status">API Status</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4 data-translate="footer_company">Company</h4>
+                            <ul>
+                                <li><a href="#" data-translate="footer_about">About Us</a></li>
+                                <li><a href="#" data-translate="footer_careers">Careers</a></li>
+                                <li><a href="#" data-translate="footer_blog">Blog</a></li>
+                                <li><a href="#contact" data-translate="footer_contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h4 data-translate="footer_legal">Legal</h4>
+                            <ul>
+                                <li><a href="#" data-translate="footer_privacy">Privacy Policy</a></li>
+                                <li><a href="#" data-translate="footer_terms">Terms of Service</a></li>
+                                <li><a href="#" data-translate="footer_compliance">Compliance</a></li>
+                                <li><a href="#" data-translate="footer_security">Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4 data-translate="footer_product">Product</h4>
-                        <ul>
-                            <li><a href="#features" data-translate="footer_features">Features</a></li>
-                            <li><a href="#pricing" data-translate="footer_pricing">Pricing</a></li>
-                            <li><a href="#documentation" data-translate="footer_documentation">Documentation</a></li>
-                            <li><a href="#" data-translate="footer_api_status">API Status</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4 data-translate="footer_company">Company</h4>
-                        <ul>
-                            <li><a href="#" data-translate="footer_about">About Us</a></li>
-                            <li><a href="#" data-translate="footer_careers">Careers</a></li>
-                            <li><a href="#" data-translate="footer_blog">Blog</a></li>
-                            <li><a href="#contact" data-translate="footer_contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4 data-translate="footer_legal">Legal</h4>
-                        <ul>
-                            <li><a href="#" data-translate="footer_privacy">Privacy Policy</a></li>
-                            <li><a href="#" data-translate="footer_terms">Terms of Service</a></li>
-                            <li><a href="#" data-translate="footer_compliance">Compliance</a></li>
-                            <li><a href="#" data-translate="footer_security">Security</a></li>
-                        </ul>
-                    </div>
+                <div class="footer-bottom">
+                    <p data-translate="footer_copyright">&copy; 2025 WeSleep. All rights reserved.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p data-translate="footer_copyright">&copy; 2025 WeSleep. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
