@@ -3,33 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeSleep API - Sleep Intelligence for Wellness Platforms</title>
-    <meta name="description" content="Integrate advanced sleep tracking and analysis into your wellness platform with WeSleep API">
-    <link rel="stylesheet" href="styles.css">
+    <title>WeSleep — Smart Alarm technology for health and wellness platforms</title>
+    <meta name="description" content="WeSleep reads sleep stages from the user's watch and wakes them in light sleep, up to 30 minutes before their alarm. Proprietary API and a ready-to-use white-label Android app.">
+    <meta property="og:title" content="WeSleep — Wake up at the best moment of your sleep">
+    <meta property="og:description" content="Proprietary Smart Alarm technology: API + white-label Android app. Works with Galaxy Watch, Mi Band and Health Connect wearables.">
+    <meta property="og:image" content="images/app/app-hoy.webp">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>WeSleep</h2>
-                <span class="api-badge">API</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#features" data-translate="nav_features">Features</a></li>
-                <li><a href="#integration" data-translate="nav_integration">Integration</a></li>
-                <li><a href="#documentation" data-translate="nav_documentation">Documentation</a></li>
-                <li><a href="#contact" class="nav-cta" data-translate="nav_get_started">Get Started</a></li>
+            <a href="#top" class="nav-logo" aria-label="WeSleep">
+                <img class="logo-mark" src="images/logo-wesleep.png" alt="" width="28" height="28">
+                <span class="logo-word">WeSleep</span>
+            </a>
+            <ul class="nav-menu" id="mainNavigation">
+                <li><a href="#app" data-translate="nav_app">The app</a></li>
+                <li><a href="#how" data-translate="nav_how">How it works</a></li>
+                <li><a href="#technology" data-translate="nav_technology">Technology</a></li>
+                <li><a href="#implementation" data-translate="nav_implementation">Implementation</a></li>
+                <li class="resource-selector">
+                    <button class="resource-btn" id="resourceToggle" aria-expanded="false" aria-haspopup="true">
+                        <span data-translate="nav_resources">Resources</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="resource-dropdown" id="resourceDropdown">
+                        <span class="dropdown-label" data-translate="nav_resources_label">B2B document (PDF)</span>
+                        <a href="#resource-email-dialog" data-document-language="en">English</a>
+                        <a href="#resource-email-dialog" data-document-language="es">Español</a>
+                        <a href="#resource-email-dialog" data-document-language="ca">Català</a>
+                        <span class="dropdown-sep"></span>
+                        <a href="api-documentation.html" class="dropdown-plain" data-translate="nav_api_docs">API reference</a>
+                    </div>
+                </li>
+                <li><a href="pilot.html" data-translate="nav_pilot">30-day pilot</a></li>
+                <li><a href="#contact" class="nav-cta" data-translate="nav_cta">Book a demo</a></li>
                 <li class="language-selector">
-                    <button class="lang-btn" id="langToggle">
+                    <button class="lang-btn" id="langToggle" aria-label="Language">
                         <span class="lang-current">EN</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9l6 6 6-6"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="lang-dropdown" id="langDropdown">
                         <button class="lang-option" data-lang="ca">Català</button>
@@ -38,362 +56,540 @@
                     </div>
                 </li>
             </ul>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button type="button" class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNavigation">
+                <span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-translate="hero_title">WeSleep API - Sleep Intelligence for Wellness Platforms</h1>
-                <p class="hero-tagline" data-translate="hero_tagline">Detectamos tendencias, no enfermedades.</p>
-                <p class="hero-subtitle" data-translate="hero_subtitle">Our proprietary algorithm learns each user's sleep patterns and wakes them at the optimal moment in their cycle. Integrate WeSleep into your app or platform — without building anything from scratch.
+    <dialog class="resource-email-dialog" id="resourceEmailDialog" aria-labelledby="resourceEmailTitle">
+        <form id="resourceEmailForm" class="resource-email-form">
+            <button type="button" class="resource-dialog-close" id="resourceDialogClose" aria-label="Close" data-translate-aria-label="resource_email_close">&times;</button>
+            <span class="eyebrow" data-translate="resource_email_kicker">Official B2B document</span>
+            <h2 id="resourceEmailTitle" data-translate="resource_email_title">Get the B2B PDF</h2>
+            <p data-translate="resource_email_description">Enter your email to receive the selected document.</p>
+            <label for="resourceEmailInput" data-translate="resource_email_label">Email address</label>
+            <input id="resourceEmailInput" name="email" type="email" autocomplete="email" required data-translate-placeholder="lead_email_placeholder" placeholder="you@company.com">
+            <p class="resource-email-privacy" data-translate="resource_email_privacy">We'll use your email to deliver this PDF and follow up on your request.</p>
+            <button type="submit" class="btn btn-primary" data-translate="resource_email_submit">Continue to PDF</button>
+            <p class="resource-email-status" id="resourceEmailStatus" aria-live="polite"></p>
+        </form>
+    </dialog>
 
-</p>
+    <main id="top">
+        <!-- Hero -->
+        <header class="hero">
+            <div class="container hero-copy">
+                <span class="eyebrow" data-translate="hero_eyebrow">Smart Alarm · API + Android app</span>
+                <h1 class="hero-title">
+                    <span data-translate="hero_title_1">Wake up at the best moment</span>
+                    <span class="gradient-text" data-translate="hero_title_2">of your sleep.</span>
+                </h1>
+                <p class="hero-subtitle" data-translate="hero_subtitle">WeSleep reads sleep stages from the watch and rings in light sleep, up to 30 minutes before the chosen time. Proprietary technology, ready to integrate into your platform — or to hand to your patients today with our white-label app.</p>
                 <div class="hero-actions">
-                    <a href="#documentation" class="btn btn-primary" data-translate="hero_view_docs">View Documentation</a>
-                    <a href="#contact" class="btn btn-secondary" data-translate="hero_contact_sales">Contact Sales</a>
+                    <a href="#contact" class="btn btn-primary" data-translate="hero_cta_primary">Book a demo</a>
+                    <a href="#implementation" class="btn-link" data-translate="hero_cta_secondary">See implementation options ›</a>
                 </div>
+                <p class="hero-note" data-translate="hero_note">Android app available now · Galaxy Watch, Mi Band and Health Connect wearables</p>
             </div>
-            <div class="hero-visual">
-                <img src="images/iPad short peview.png" alt="WeSleep iPad Dashboard" class="hero-image">
+            <div class="hero-stage" aria-hidden="false">
+                <div class="hero-glow" aria-hidden="true"></div>
+                <figure class="phone phone-side phone-left">
+                    <img src="images/app/app-noche.webp" alt="WeSleep: sleep score 93, Excellent" width="640" height="1211" loading="eager">
+                </figure>
+                <figure class="phone phone-main">
+                    <img src="images/app/app-hoy.webp" alt="WeSleep Smart Alarm home screen" width="640" height="1211" loading="eager">
+                </figure>
+                <figure class="phone phone-side phone-right">
+                    <img src="images/app/app-despertar.webp" alt="WeSleep morning check-in: how did you wake up?" width="640" height="1211" loading="eager">
+                </figure>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="features_title">Powerful Sleep Analytics</h2>
-                <p data-translate="features_subtitle">Comprehensive sleep data and insights to enhance your healthcare platform</p>
+        <!-- Wearables carousel -->
+        <section id="wearables" class="wearables">
+            <div class="container">
+                <p class="wearables-title" data-translate="wearables_title">Works with the watch your users already wear</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 12h18m-9-9v18"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="feature1_title">Sleep Cycle Analysis</h3>
-                    <p data-translate="feature1_desc">Detailed tracking of sleep stages, cycles, and patterns with millisecond precision</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="feature2_title">Smart Predictive Alarm</h3>
-                    <p data-translate="feature2_desc">Patented algorithm analyzes user history to find the optimal wake-up moment within a 30-minute window, avoiding deep sleep phases and sleep inertia</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="feature3_title">Preventive Health Analysis</h3>
-                    <p data-translate="feature3_desc">AI-powered analysis of HRV, sleep phases, and SpO₂ trends to detect health deterioration patterns before they become chronic conditions</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="feature4_title">Dual-Layer Insights</h3>
-                    <p data-translate="feature4_desc">Weekly user engagement summaries and monthly clinical anomaly detection with proactive referral recommendations</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="feature5_title">White-Label Solution</h3>
-                    <p data-translate="feature5_desc">B2B SaaS model designed for seamless integration into healthcare insurance ecosystems with your branding</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v6m0 6v6m4.22-13.22l4.24 4.24M1.54 1.54l4.24 4.24M20.46 20.46l-4.24-4.24M1.54 20.46l4.24-4.24"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="feature6_title">No-Diagnosis AI System</h3>
-                    <p data-translate="feature6_desc">Advanced LLM analysis with strict constraints to provide insights without medical diagnoses, acting as an early warning system</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Model Section -->
-    <section id="business-model" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="business_title">B2B SaaS for Wellness Platforms</h2>
-                <p data-translate="business_subtitle">White-label solution designed to enhance patient retention and reduce medical costs through preventative care</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="business_feature1_title">Patient Retention</h3>
-                    <p data-translate="business_feature1_desc">Daily smart alarm usage creates high engagement with your insurance platform, building lasting member relationships</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="business_feature2_title">Cost Reduction</h3>
-                    <p data-translate="business_feature2_desc">Early detection through monthly anomaly alerts prevents expensive chronic treatments, reducing overall healthcare costs</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="business_feature3_title">Multi-Tenant Architecture</h3>
-                    <p data-translate="business_feature3_desc">FastAPI backend with PostgreSQL, supporting multiple insurance providers with complete data isolation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="integration">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="howitworks_title">How WeSleep Works</h2>
-                <p data-translate="howitworks_subtitle">From wearable data to actionable health insights</p>
-            </div>
-            <div class="integration-content">
-                <div class="integration-code">
-                    <div class="code-header">
-                        <span class="code-language" data-translate="howitworks_dataflow">Data Flow</span>
-                    </div>
-                    <pre><code>1. Wearable Data Ingestion
-   POST /api/v1/webhooks/wearable/
-   → Raw sleep data securely ingested and normalized
-
-2. Smart Alarm Prediction
-   POST /api/v1/sleep/smart-alarm
-   → Optimal wake-up window calculated in real time
-
-3. Weekly User Insights
-   GET /api/v1/insights/weekly/{user_id}
-   → Personalized engagement summaries
-
-4. Monthly Trend Detection
-   GET /api/v1/insights/monthly/{user_id}
-   → Sustained pattern alerts, no diagnosis</code></pre>
-                </div>
-                <div class="integration-features">
-                    <h3 data-translate="howitworks_metrics_title">Key Metrics Analyzed</h3>
-                    <ul>
-                        <li><strong>Heart Rate Variability (HRV)</strong> - Recovery and stress indicator</li>
-                        <li><strong>Sleep Phases Distribution</strong> - Light, deep, and REM patterns</li>
-                        <li><strong>Blood Oxygen (SpO₂)</strong> - Respiratory quality indicator</li>
-                        <li><strong>Sleep Efficiency</strong> - Quality vs time in bed ratio</li>
-                        <li><strong>Trend Analysis</strong> - Intra-month deterioration patterns</li>
-                        <li><strong>AI-Powered Reasoning</strong> - Proprietary sleep-intelligence engine with built-in no-diagnosis safeguards</li>
+            <div class="marquee" aria-label="Compatible wearables">
+                <div class="marquee-track">
+                    <ul class="marquee-group">
+                        <li class="brand brand-samsung">SAMSUNG <span>Galaxy Watch</span></li>
+                        <li class="brand brand-xiaomi">Xiaomi <span>Mi Band</span></li>
+                        <li class="brand brand-google">Google <span>Pixel Watch</span></li>
+                        <li class="brand brand-fitbit">fitbit</li>
+                        <li class="brand brand-withings">WITHINGS</li>
+                        <li class="brand brand-oura">ŌURA</li>
+                        <li class="brand brand-amazfit">amazfit</li>
+                        <li class="brand brand-hc">Health Connect</li>
+                    </ul>
+                    <ul class="marquee-group" aria-hidden="true">
+                        <li class="brand brand-samsung">SAMSUNG <span>Galaxy Watch</span></li>
+                        <li class="brand brand-xiaomi">Xiaomi <span>Mi Band</span></li>
+                        <li class="brand brand-google">Google <span>Pixel Watch</span></li>
+                        <li class="brand brand-fitbit">fitbit</li>
+                        <li class="brand brand-withings">WITHINGS</li>
+                        <li class="brand brand-oura">ŌURA</li>
+                        <li class="brand brand-amazfit">amazfit</li>
+                        <li class="brand brand-hc">Health Connect</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Integration Section -->
-    <section id="integration" class="integration">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="integration_title">Seamless Integration</h2>
-                <p data-translate="integration_subtitle">Get started in minutes with our developer-friendly API</p>
+            <div class="container">
+                <p class="wearables-note" data-translate="wearables_note">Compatible with any wearable whose app saves sleep stages to Health Connect. Recommended: Samsung Galaxy Watch. Tested with real data: Xiaomi Mi Band.</p>
             </div>
-            <div class="integration-content">
-                <div class="integration-code">
-                    <div class="code-header">
-                        <span class="code-language">JavaScript</span>
-                        <button class="copy-btn">Copy</button>
-                    </div>
-                    <pre><code>const response = await fetch('https://api.wesleep.pro/smart-alarm', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer YOUR_API_KEY',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    sleep_record_id: '0134ff3c-3f60-8c46-8e4e-c0dd218c4e3a',
-    target_time: '2026-02-12T07:00:00Z'
-  })
-});
+        </section>
 
-const alarm = await response.json();
-console.log(alarm);
-// { suggested_time: "2026-02-12T06:45:00Z", confidence: 0.9, ... }</code></pre>
-                </div>
-                <div class="integration-features">
-                    <h3 data-translate="integration_dev_title">Developer-Friendly Features</h3>
-                    <ul>
-                        <li data-translate="integration_feature1">FastAPI-based architecture with clear documentation</li>
-                        <li data-translate="integration_feature2">Ready-to-use frontend dashboard for data visualization</li>
-                        <li>Webhook support for real-time updates</li>
-                        <li>Comprehensive error handling</li>
-                        <li>Rate limiting and monitoring</li>
-                    </ul>
-                </div>
+        <!-- Key figures -->
+        <section class="figures">
+            <div class="container figures-grid">
+                <div class="figure"><strong>30<small>min</small></strong><span data-translate="fig_1">smart window before the alarm time</span></div>
+                <div class="figure"><strong>7</strong><span data-translate="fig_2">nights of history behind each prediction</span></div>
+                <div class="figure"><strong>3</strong><span data-translate="fig_3">nights with data to start learning</span></div>
+                <div class="figure"><strong>10<small>min</small></strong><span data-translate="fig_4">to set up, then it runs on its own</span></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Documentation Section -->
-    <section id="documentation" class="documentation">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-translate="docs_title">Comprehensive Documentation</h2>
-                <p data-translate="docs_subtitle">Everything you need to integrate sleep intelligence into your platform</p>
-            </div>
-            <div class="doc-grid">
-                <div class="doc-card">
-                    <h3 data-translate="docs_getting_started">Getting Started</h3>
-                    <p data-translate="docs_getting_started_desc">Quick start guide and authentication setup</p>
-                    <a href="#" class="doc-link" data-translate="docs_read_more">Read More →</a>
-                </div>
-                <div class="doc-card">
-                    <h3 data-translate="docs_api_reference">API Reference</h3>
-                    <p data-translate="docs_api_reference_desc">Complete API documentation with examples</p>
-                    <a href="api-documentation.html" class="doc-link" data-translate="docs_read_more">Read More →</a>
-                </div>
-                <div class="doc-card">
-                    <h3 data-translate="docs_sdks">SDKs & Libraries</h3>
-                    <p data-translate="docs_sdks_desc">Official SDKs for popular programming languages</p>
-                    <a href="#" class="doc-link" data-translate="docs_read_more">Read More →</a>
-                </div>
-                <div class="doc-card">
-                    <h3 data-translate="docs_webhooks">Webhooks</h3>
-                    <p data-translate="docs_webhooks_desc">Real-time data updates and event notifications</p>
-                    <a href="#" class="doc-link" data-translate="docs_read_more">Read More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<div class="contact-footer-wrapper">
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <!-- Sleep education -->
+        <section class="education" id="education">
             <div class="container">
                 <div class="section-header">
-                    <h2 data-translate="contact_title">Ready to Transform Healthcare?</h2>
-                    <p data-translate="contact_subtitle">Get in touch with our team to discuss how WeSleep API can enhance your platform</p>
+                    <span class="eyebrow" data-translate="sleep_education_eyebrow">The foundation of wellbeing</span>
+                    <h2 data-translate="sleep_education_title">Sleep well. Live better.</h2>
+                    <p data-translate="sleep_education_intro">Sleep is not time lost. It is when the body restores, the mind processes the day and the foundations of tomorrow are built.</p>
                 </div>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <h3 data-translate="contact_sales">Sales</h3>
-                            <p>bernat@wesleep.pro</p>
-                            <p>+34 689 445 125</p>
-                            <p>jaume@wesleep.pro</p>
-                            <p>+34 639 755 988</p>
-                        </div>
-                        <div class="contact-item">
-                            <h3 data-translate="contact_support">Technical Support</h3>
-                            <p>bernat@wesleep.pro</p>
-                            <p data-translate="contact_support_desc">24/7 Enterprise Support</p>
-                        </div>
+
+                <div class="cycle-card">
+                    <div class="cycle-copy">
+                        <h3 data-translate="cycle_title">A night is a series of cycles</h3>
+                        <p data-translate="cycle_desc">We go through 4 to 6 cycles of about 90 minutes. Each one moves between light, deep and REM sleep. Waking up in deep sleep feels heavy; waking up in light sleep feels natural.</p>
                     </div>
-                    <div class="contact-form">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" name="name" placeholder="Your Name" data-translate-placeholder="form_name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="Email Address" data-translate-placeholder="form_email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="company" placeholder="Company Name" data-translate-placeholder="form_company" required>
-                            </div>
-                            <div class="form-group">
-                                <select name="plan" required>
-                                    <option value="" disabled selected data-translate="form_plan_select">Select Plan</option>
-                                    <option value="starter" data-translate="form_plan_starter">Starter</option>
-                                    <option value="professional" data-translate="form_plan_professional">Professional</option>
-                                    <option value="enterprise" data-translate="form_plan_enterprise">Enterprise</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" placeholder="Tell us about your needs" data-translate-placeholder="form_message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" data-translate="form_submit">Send Message</button>
-                        </form>
+                    <div class="cycle-chart">
+                        <svg viewBox="-80 0 720 236" role="img" aria-labelledby="cycleChartTitle">
+                            <title id="cycleChartTitle">Sleep stages through the night and the WeSleep smart window</title>
+                            <defs>
+                                <linearGradient id="windowFill" x1="0" x2="1">
+                                    <stop offset="0" stop-color="#7b8cff" stop-opacity="0.05"/>
+                                    <stop offset="1" stop-color="#6ee0c8" stop-opacity="0.25"/>
+                                </linearGradient>
+                                <linearGradient id="hypnoStroke" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0" stop-color="#c79bf0"/>
+                                    <stop offset="0.5" stop-color="#6fc3ff"/>
+                                    <stop offset="1" stop-color="#5562e8"/>
+                                </linearGradient>
+                            </defs>
+                            <text x="-14" y="44" class="row rem" text-anchor="end" data-translate="stage_rem">REM</text>
+                            <text x="-14" y="94" class="row light" text-anchor="end" data-translate="stage_light">Light</text>
+                            <text x="-14" y="144" class="row deep" text-anchor="end" data-translate="stage_deep">Deep</text>
+                            <line x1="0" y1="40" x2="620" y2="40" class="grid"/>
+                            <line x1="0" y1="90" x2="620" y2="90" class="grid"/>
+                            <line x1="0" y1="140" x2="620" y2="140" class="grid"/>
+                            <rect x="512" y="24" width="96" height="134" rx="10" fill="url(#windowFill)"/>
+                            <path class="hypno" stroke="url(#hypnoStroke)" d="M0 90 H30 V140 H105 V90 H140 V40 H160 V90 H190 V140 H235 V90 H275 V40 H305 V90 H330 V140 H350 V90 H395 V40 H430 V90 H470 V40 H500 V90 H520 V140 H540 V90 H608"/>
+                            <circle cx="562" cy="90" r="7" class="wake-dot"/>
+                            <line x1="608" y1="24" x2="608" y2="158" class="target-line"/>
+                            <text x="0" y="186" class="axis">00:00</text>
+                            <text x="304" y="186" class="axis" text-anchor="middle">04:00</text>
+                            <text x="608" y="186" class="axis" text-anchor="end">08:00</text>
+                            <text x="560" y="16" class="label" text-anchor="middle" data-translate="chart_window">Smart window</text>
+                            <text x="560" y="214" class="label-strong" text-anchor="middle" data-translate="chart_wake">WeSleep wakes you here</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="education-grid">
+                    <article class="edu-panel">
+                        <span class="edu-index">01</span>
+                        <h3 data-translate="sleep_benefits_title">What quality sleep gives us</h3>
+                        <p data-translate="sleep_benefits_desc">Consistent, restorative sleep supports the systems that keep people engaged, focused and resilient.</p>
+                        <ul class="check-list">
+                            <li data-translate="sleep_benefit_1">Better energy, focus and decision-making</li>
+                            <li data-translate="sleep_benefit_2">More stable mood and emotional balance</li>
+                            <li data-translate="sleep_benefit_3">Recovery that helps the body adapt and perform</li>
+                        </ul>
+                    </article>
+                    <article class="edu-panel">
+                        <span class="edu-index">02</span>
+                        <h3 data-translate="sleep_challenges_title">When sleep loses its rhythm</h3>
+                        <p data-translate="sleep_challenges_desc">Poor sleep can affect far more than the morning. Repeated disruption makes everyday performance and recovery harder.</p>
+                        <ul class="check-list minus">
+                            <li data-translate="sleep_challenge_1">Morning fatigue and slower mental clarity</li>
+                            <li data-translate="sleep_challenge_2">Lower resilience to stress and daily demands</li>
+                            <li data-translate="sleep_challenge_3">Less consistent energy throughout the day</li>
+                        </ul>
+                    </article>
+                    <article class="edu-panel edu-panel-accent">
+                        <span class="edu-index">03</span>
+                        <h3 data-translate="sleep_timing_title">Waking up at the right moment matters</h3>
+                        <p data-translate="sleep_timing_desc">Waking during deep sleep causes sleep inertia: heaviness and disorientation that can last a while. Understanding each person's sleep pattern finds a more natural moment to wake.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="how" id="how">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow" data-translate="how_eyebrow">How it works</span>
+                    <h2 data-translate="how_title">Set it once. It works every night.</h2>
+                </div>
+                <ol class="steps">
+                    <li class="step">
+                        <span class="step-num">1</span>
+                        <h3 data-translate="how_1_title">The watch measures sleep</h3>
+                        <p data-translate="how_1_desc">The user sleeps with their watch on. It records light, deep and REM sleep and saves the night to Health Connect.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-num">2</span>
+                        <h3 data-translate="how_2_title">WeSleep learns the pattern</h3>
+                        <p data-translate="how_2_desc">With the last nights, the algorithm finds when that person's sleep is usually lightest before their alarm.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-num">3</span>
+                        <h3 data-translate="how_3_title">It wakes them at the best moment</h3>
+                        <p data-translate="how_3_desc">Up to 30 minutes before the chosen time. Never later. The app explains why it chose that minute.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- The app -->
+        <section class="app-showcase" id="app">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow" data-translate="app_eyebrow">The app</span>
+                    <h2 data-translate="app_title">A finished product. Ready to use.</h2>
+                    <p data-translate="app_subtitle">Not a prototype: a native Android app your users can install today, with your brand if you want.</p>
+                </div>
+
+                <div class="feature-row">
+                    <figure class="phone">
+                        <img src="images/app/app-hoy.webp" alt="Today screen with the Smart Alarm" width="640" height="1211" loading="lazy">
+                    </figure>
+                    <div class="feature-copy">
+                        <span class="feature-kicker" data-translate="app_1_kicker">Today</span>
+                        <h3 data-translate="app_1_title">The alarm, explained.</h3>
+                        <p data-translate="app_1_desc">A large clock shows when it will ring and the 30-minute window it can use. One switch turns the Smart Alarm on or off, with the days of the week just below.</p>
+                        <ul class="check-list">
+                            <li data-translate="app_1_b1">Recommended bedtime for tonight, based on their own cycles</li>
+                            <li data-translate="app_1_b2">Gentle volume that rises over 30 seconds</li>
+                            <li data-translate="app_1_b3">Full screen over the lock screen, with a 9-minute snooze</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-row reverse">
+                    <div class="phone-pair">
+                        <figure class="phone">
+                            <img src="images/app/app-noche.webp" alt="Sleep score of the night" width="640" height="1211" loading="lazy">
+                        </figure>
+                        <figure class="phone phone-offset">
+                            <img src="images/app/app-historia.webp" alt="Story of the night: stages and cycles" width="640" height="1211" loading="lazy">
+                        </figure>
+                    </div>
+                    <div class="feature-copy">
+                        <span class="feature-kicker" data-translate="app_2_kicker">Your night</span>
+                        <h3 data-translate="app_2_title">Every night, in one look.</h3>
+                        <p data-translate="app_2_desc">A score from 0 to 100, time asleep and the story of the night: each cycle, each stage and the exact moment the alarm rang.</p>
+                        <ul class="check-list">
+                            <li data-translate="app_2_b1">Light, deep and REM compared with adult reference values</li>
+                            <li data-translate="app_2_b2">Personal tips written in plain language</li>
+                            <li data-translate="app_2_b3">Guidance values, never a medical diagnosis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-row">
+                    <figure class="phone">
+                        <img src="images/app/app-despertar.webp" alt="How did you wake up? Rested, normal or tired" width="640" height="1211" loading="lazy">
+                    </figure>
+                    <div class="feature-copy">
+                        <span class="feature-kicker" data-translate="app_3_kicker">Every morning</span>
+                        <h3 data-translate="app_3_title">How did you wake up?</h3>
+                        <p data-translate="app_3_desc">After the alarm, WeSleep tells the user when and why it woke them, then asks how they feel with a single tap. Then it checks against the watch whether they really were in light sleep.</p>
+                        <ul class="check-list">
+                            <li data-translate="app_3_b1">Streaks of mornings woken at the best moment</li>
+                            <li data-translate="app_3_b2">A card to share their morning</li>
+                            <li data-translate="app_3_b3">A daily habit that keeps users coming back</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-row reverse">
+                    <figure class="phone">
+                        <img src="images/app/app-semana.webp" alt="Weekly summary" width="640" height="1211" loading="lazy">
+                    </figure>
+                    <div class="feature-copy">
+                        <span class="feature-kicker" data-translate="app_4_kicker">Your week</span>
+                        <h3 data-translate="app_4_title">Trends, not just nights.</h3>
+                        <p data-translate="app_4_desc">A weekly summary with averages, the evolution of hours slept and how regular bedtime is. What really changes how people rest.</p>
+                        <ul class="check-list">
+                            <li data-translate="app_4_b1">Average score, efficiency, deep and REM sleep</li>
+                            <li data-translate="app_4_b2">Mornings rested vs. tired</li>
+                            <li data-translate="app_4_b3">Available in Spanish and Catalan</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <h3>WeSleep API</h3>
-                        <p data-translate="footer_description">Sleep intelligence for healthcare insurance platforms</p>
-                    </div>
-                    <div class="footer-links">
-                        <div class="footer-column">
-                            <h4 data-translate="footer_product">Product</h4>
-                            <ul>
-                                <li><a href="#features" data-translate="footer_features">Features</a></li>
-                                <li><a href="#documentation" data-translate="footer_documentation">Documentation</a></li>
-                                <li><a href="#" data-translate="footer_api_status">API Status</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-column">
-                            <h4 data-translate="footer_company">Company</h4>
-                            <ul>
-                                <li><a href="#" data-translate="footer_about">About Us</a></li>
-                                <li><a href="#" data-translate="footer_careers">Careers</a></li>
-                                <li><a href="#" data-translate="footer_blog">Blog</a></li>
-                                <li><a href="#contact" data-translate="footer_contact">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-column">
-                            <h4 data-translate="footer_legal">Legal</h4>
-                            <ul>
-                                <li><a href="#" data-translate="footer_privacy">Privacy Policy</a></li>
-                                <li><a href="#" data-translate="footer_terms">Terms of Service</a></li>
-                                <li><a href="#" data-translate="footer_compliance">Compliance</a></li>
-                                <li><a href="#" data-translate="footer_security">Security</a></li>
-                            </ul>
-                        </div>
-                    </div>
+        <!-- Reliability -->
+        <section class="reliability">
+            <div class="container reliability-inner">
+                <div class="reliability-copy">
+                    <span class="eyebrow" data-translate="rel_eyebrow">Reliability</span>
+                    <h2 data-translate="rel_title">An alarm that always rings.</h2>
+                    <p data-translate="rel_desc">WeSleep predicts instead of measuring live: the alarm is set before going to sleep, from the learned pattern. It does not depend on the watch sending data during the night.</p>
+                    <ul class="rel-list">
+                        <li><strong data-translate="rel_1_t">Rings without internet</strong><span data-translate="rel_1_d">Even if the watch runs out of battery or the server does not respond.</span></li>
+                        <li><strong data-translate="rel_2_t">Never later than the chosen time</strong><span data-translate="rel_2_d">Without enough data, it rings exactly at the target time.</span></li>
+                        <li><strong data-translate="rel_3_t">System alarm priority</strong><span data-translate="rel_3_d">Rescheduled after restarts, time changes and updates.</span></li>
+                        <li><strong data-translate="rel_4_t">No accounts or passwords</strong><span data-translate="rel_4_d">Anonymous sign-up. Users can delete all their data from the app.</span></li>
+                    </ul>
                 </div>
-                <div class="footer-bottom">
-                    <p data-translate="footer_copyright">&copy; 2025 WeSleep. All rights reserved.</p>
+                <figure class="phone">
+                    <img src="images/app/app-ajustes.webp" alt="Settings: everything green so the alarm never fails" width="640" height="1211" loading="lazy">
+                </figure>
+            </div>
+        </section>
+
+        <!-- Technology -->
+        <section class="technology" id="technology">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow" data-translate="tech_eyebrow">Technology</span>
+                    <h2 data-translate="tech_title">The engine, ready to integrate.</h2>
+                    <p data-translate="tech_subtitle">The app is the visible part. Underneath is a proprietary algorithm exposed through a REST API, so you can put it inside your own product.</p>
+                </div>
+
+                <div class="flow" role="list">
+                    <div class="flow-node" role="listitem"><span class="flow-label" data-translate="flow_1">Wearable</span><small>Galaxy Watch · Mi Band</small></div>
+                    <span class="flow-arrow" aria-hidden="true"></span>
+                    <div class="flow-node" role="listitem"><span class="flow-label">Health Connect</span><small data-translate="flow_2">Android health store</small></div>
+                    <span class="flow-arrow" aria-hidden="true"></span>
+                    <div class="flow-node" role="listitem"><span class="flow-label" data-translate="flow_3">WeSleep app or yours</span><small data-translate="flow_3s">Reads the nights</small></div>
+                    <span class="flow-arrow" aria-hidden="true"></span>
+                    <div class="flow-node flow-node-accent" role="listitem"><span class="flow-label">WeSleep API</span><small data-translate="flow_4">Optimal wake-up time</small></div>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="code-card integration-code">
+                        <div class="code-header">
+                            <span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="code-language">GET /api/v1/alarm/predict</span>
+                            <button class="copy-btn" type="button" data-translate="copy">Copy</button>
+                        </div>
+<pre><code>GET /api/v1/alarm/predict/{patient_id}?target_time=08:30
+Authorization: Bearer &lt;token&gt;
+
+{
+  "target_time": "08:30",
+  "optimal_wakeup_time": "08:09",
+  "reason": "21 min before your target time,
+             avoiding deep sleep: in your last
+             7 nights you were in light sleep
+             at that time."
+}</code></pre>
+                    </div>
+                    <div class="tech-points">
+                        <div class="tech-point">
+                            <h3 data-translate="tech_1_t">A small, stable API</h3>
+                            <p data-translate="tech_1_d">Register a user, upload sleep stages, get the optimal time, insights and morning check-ins. JSON over HTTPS with automatic OpenAPI documentation.</p>
+                        </div>
+                        <div class="tech-point">
+                            <h3 data-translate="tech_2_t">Privacy by design</h3>
+                            <p data-translate="tech_2_d">Anonymous users, a 256-bit key per user stored only as a hash, servers in the EU and a single call to erase everything (GDPR).</p>
+                        </div>
+                        <div class="tech-point">
+                            <h3 data-translate="tech_3_t">Explainable, not a black box</h3>
+                            <p data-translate="tech_3_d">Every prediction comes with its reason. Scores and tips are deterministic and do not issue diagnoses.</p>
+                        </div>
+                        <ul class="endpoint-list" aria-label="Endpoints">
+                            <li><b>POST</b> /register</li>
+                            <li><b>POST</b> /sleep/{id}</li>
+                            <li><b>GET</b> /alarm/predict/{id}</li>
+                            <li><b>GET</b> /insights/{id}</li>
+                            <li><b>POST</b> /wake/{id}</li>
+                            <li><b>DELETE</b> /patients/{id}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
+
+        <!-- Business -->
+        <section class="business" id="implementation">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow" data-translate="biz_eyebrow">For organisations</span>
+                    <h2 data-translate="biz_title">Two ways to offer WeSleep.</h2>
+                    <p data-translate="biz_subtitle">For sleep and wellness clinics, health insurers and wellness platforms that want a daily, useful touchpoint with their people.</p>
+                </div>
+                <div class="biz-grid">
+                    <article class="biz-card">
+                        <span class="biz-tag" data-translate="biz_1_tag">Fastest</span>
+                        <h3 data-translate="biz_1_t">White-label app</h3>
+                        <p data-translate="biz_1_d">The WeSleep app with your name, logo and colours. Your patients install it and start in 10 minutes. Nothing to build.</p>
+                        <ul class="check-list">
+                            <li data-translate="biz_1_b1">Ready in days</li>
+                            <li data-translate="biz_1_b2">Installation guide for end users</li>
+                            <li data-translate="biz_1_b3">Updates and support included</li>
+                        </ul>
+                        <div class="impl-steps">
+                            <span class="impl-title" data-translate="impl_title">Implementation in 3 steps</span>
+                            <ol>
+                                <li data-translate="impl_1_s1">You send us your logo, colours and app name.</li>
+                                <li data-translate="impl_1_s2">We deliver your branded app and the user guide.</li>
+                                <li data-translate="impl_1_s3">Your patients install it and connect their watch in 10 minutes.</li>
+                            </ol>
+                        </div>
+                    </article>
+                    <article class="biz-card">
+                        <span class="biz-tag" data-translate="biz_2_tag">Most flexible</span>
+                        <h3 data-translate="biz_2_t">API for your platform</h3>
+                        <p data-translate="biz_2_d">Add the Smart Alarm and sleep insights to the app you already have. You own the experience; we provide the engine.</p>
+                        <ul class="check-list">
+                            <li data-translate="biz_2_b1">Technical documentation and examples</li>
+                            <li data-translate="biz_2_b2">Integration in days, not months</li>
+                            <li data-translate="biz_2_b3">Direct access to the founding team</li>
+                        </ul>
+                        <div class="impl-steps">
+                            <span class="impl-title" data-translate="impl_title">Implementation in 3 steps</span>
+                            <ol>
+                                <li data-translate="impl_2_s1">We give you access to the API and a test environment.</li>
+                                <li data-translate="impl_2_s2">Your app reads the nights from Health Connect and sends the sleep stages.</li>
+                                <li data-translate="impl_2_s3">Each night you request the optimal time and schedule the alarm.</li>
+                            </ol>
+                        </div>
+                    </article>
+                </div>
+                <div class="pilot-banner">
+                    <div>
+                        <h3 data-translate="pilot_t">Try it free for 30 days.</h3>
+                        <p data-translate="pilot_d">A pilot with your team or a group of patients. No commitment and no card.</p>
+                    </div>
+                    <a href="pilot.html" class="btn btn-primary" data-translate="pilot_cta">See the pilot</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead magnet -->
+        <section class="lead-magnet" id="lead-magnet">
+            <div class="container lead-magnet-inner">
+                <div class="lead-magnet-copy">
+                    <span class="eyebrow" data-translate="lead_eyebrow">Free guide</span>
+                    <h2 data-translate="lead_title">A smarter way to improve member engagement.</h2>
+                    <p data-translate="lead_description">Get our practical B2B guide for free — just share your email to unlock it.</p>
+                    <ul class="check-list">
+                        <li data-translate="lead_benefit_1">Increase daily engagement</li>
+                        <li data-translate="lead_benefit_2">Strengthen preventive health programmes</li>
+                        <li data-translate="lead_benefit_3">Turn sleep insights into product value</li>
+                    </ul>
+                    <p class="lead-proof" data-translate="lead_proof">Based on 2 years of R&amp;D in personalised sleep prediction.</p>
+                </div>
+                <div class="lead-magnet-card">
+                    <span class="lead-badge" data-translate="lead_badge">Free PDF</span>
+                    <h3 data-translate="lead_card_title">Download the guide</h3>
+                    <p data-translate="lead_card_description">Choose your sector and enter your email.</p>
+                    <form id="leadMagnetForm" class="lead-form">
+                        <label class="sr-only" for="leadSector" data-translate="lead_sector_label">Your sector</label>
+                        <select id="leadSector" name="sector" required>
+                            <option value="" disabled selected data-translate="lead_sector_placeholder">Select your sector</option>
+                            <option value="wellness" data-translate="lead_sector_wellness">B2B Wellness</option>
+                            <option value="private-company" data-translate="lead_sector_private">B2B Private company</option>
+                            <option value="b2c" data-translate="lead_sector_b2c">B2C</option>
+                        </select>
+                        <label class="sr-only" for="leadEmail" data-translate="lead_email_label">Email address</label>
+                        <input id="leadEmail" type="email" name="lead_email" placeholder="you@company.com" autocomplete="email" data-translate-placeholder="lead_email_placeholder" required>
+                        <button type="submit" class="btn btn-primary btn-block" data-translate="lead_button">Download PDF</button>
+                        <p class="lead-form-success" aria-live="polite"></p>
+                        <p class="lead-form-error" aria-live="polite"></p>
+                        <p class="lead-form-error" id="leadPdfUnavailable" aria-live="polite"></p>
+                    </form>
+                    <p class="lead-privacy" data-translate="lead_privacy">By downloading, you agree to receive updates about WeSleep.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow" data-translate="contact_eyebrow">Contact</span>
+                    <h2 data-translate="contact_title">Let's talk about your patients' sleep.</h2>
+                    <p data-translate="contact_subtitle">Tell us about your organisation and we will show you WeSleep working on a real watch.</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3 data-translate="contact_sales">Sales</h3>
+                            <p><a href="mailto:bernat@wesleep.pro">bernat@wesleep.pro</a> · <a href="tel:+34689445125">+34 689 445 125</a></p>
+                            <p><a href="mailto:jaume@wesleep.pro">jaume@wesleep.pro</a> · <a href="tel:+34639755988">+34 639 755 988</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 data-translate="contact_support">Technical support</h3>
+                            <p><a href="mailto:bernat@wesleep.pro">bernat@wesleep.pro</a></p>
+                            <p class="muted" data-translate="contact_support_desc">Direct line to the founding team</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3 data-translate="contact_demo">Prefer a call?</h3>
+                            <p><a href="pilot.html#reserve" data-translate="contact_demo_link">Book 30 minutes in our calendar ›</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                            <input type="text" name="name" placeholder="Your name" data-translate-placeholder="form_name" autocomplete="name" required>
+                            <input type="email" name="email" placeholder="Email address" data-translate-placeholder="form_email" autocomplete="email" required>
+                            <input type="text" name="company" placeholder="Organisation" data-translate-placeholder="form_company" autocomplete="organization" required>
+                            <select name="plan" required>
+                                <option value="" disabled selected data-translate="form_plan_select">Which implementation interests you?</option>
+                                <option value="white-label" data-translate="form_plan_white">White-label app</option>
+                                <option value="api" data-translate="form_plan_api">API integration</option>
+                                <option value="pilot" data-translate="form_plan_pilot">30-day pilot</option>
+                            </select>
+                            <textarea name="message" placeholder="Tell us about your needs" data-translate-placeholder="form_message" rows="4" required></textarea>
+                            <button type="submit" class="btn btn-primary btn-block" data-translate="form_submit">Send message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#top" class="nav-logo"><img class="logo-mark" src="images/logo-wesleep.png" alt="" width="28" height="28"><span class="logo-word">WeSleep</span></a>
+                    <p data-translate="footer_description">Smart Alarm technology for health and wellness platforms.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-translate="footer_product">Product</h4>
+                        <ul>
+                            <li><a href="#app" data-translate="nav_app">The app</a></li>
+                            <li><a href="#technology" data-translate="nav_technology">Technology</a></li>
+                            <li><a href="#implementation" data-translate="nav_implementation">Implementation</a></li>
+                            <li><a href="#wearables" data-translate="nav_wearables">Wearables</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 data-translate="footer_company">Company</h4>
+                        <ul>
+                            <li><a href="pilot.html" data-translate="nav_pilot">30-day pilot</a></li>
+                            <li><a href="api-documentation.html" data-translate="nav_api_docs">API reference</a></li>
+                            <li><a href="#contact" data-translate="footer_contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="footer_disclaimer">WeSleep is not a medical device. Scores and sleep stages are for guidance only and are not a diagnosis.</p>
+                <p data-translate="footer_copyright">© 2026 WeSleep. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

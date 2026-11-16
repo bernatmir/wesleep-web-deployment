@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeSleep — Pilot gratuït de 30 dies</title>
+  <meta name="description" content="Prova WeSleep gratis durant 30 dies amb el teu equip o els teus pacients. Sense compromís." />
+  <meta property="og:title" content="WeSleep — Pilot gratuït de 30 dies" />
+  <meta property="og:description" content="Prova WeSleep gratis durant 30 dies amb el teu equip o els teus pacients. Sense compromís." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/app/app-hoy.webp" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pilot.css" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body class="pilot-page">
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="WeSleep">
+        <img class="logo-mark" src="images/logo-wesleep.png" alt="" width="28" height="28" />
+        <span class="logo-word">WeSleep</span>
+      </a>
+      <div class="pilot-nav-actions">
+        <a class="pilot-home" href="index.html" data-i18n="home_button">Pàgina principal</a>
+        <div class="pilot-lang" role="group" aria-label="Language">
+          <a href="pilot.html?lang=ca" data-lang="ca">CA</a>
+          <a href="pilot.html?lang=es" data-lang="es">ES</a>
+          <a href="pilot.html?lang=en" data-lang="en">EN</a>
+        </div>
+        <a href="#reserve" class="nav-cta pilot-nav-cta" data-i18n="cta_short">Reservar demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="pilot-hero">
+      <div class="container pilot-hero-grid">
+        <div class="pilot-hero-copy">
+          <span class="eyebrow" data-i18n="eyebrow">Pilot gratuït de 30 dies</span>
+          <h1>
+            <span data-i18n="hero_title_1">Prova WeSleep 30 dies</span>
+            <span class="gradient-text" data-i18n="hero_title_2">amb la teva gent.</span>
+          </h1>
+          <p class="pilot-lead" data-i18n="hero_subtitle">Un pilot amb el teu equip o amb un grup de pacients, amb el seu rellotge de sempre. Sense cost, sense compromís i amb l'equip fundador al teu costat.</p>
+          <div class="hero-actions pilot-actions">
+            <a class="btn btn-primary" href="#reserve" data-i18n="cta">Reserva la teva demo</a>
+            <a class="btn-link" href="index.html#implementation" data-i18n="cta_secondary">Veure formes d'implementació ›</a>
+          </div>
+          <ul class="pilot-badges">
+            <li data-i18n="badge_1">Sense targeta</li>
+            <li data-i18n="badge_2">Demo de 30 minuts</li>
+            <li data-i18n="badge_3">Android · Health Connect</li>
+          </ul>
+        </div>
+        <div class="pilot-hero-visual">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <figure class="phone pilot-phone-back">
+            <img src="images/app/app-noche.webp" alt="" width="640" height="1211" />
+          </figure>
+          <figure class="phone pilot-phone-front">
+            <img src="images/app/app-hoy.webp" alt="WeSleep Smart Alarm" width="640" height="1211" />
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <section class="pilot-steps-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-i18n="steps_eyebrow">Com funciona el pilot</span>
+          <h2 data-i18n="steps_title">De la demo als resultats, en tres passos.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">1</span>
+            <h3 data-i18n="step_1_t">Demo de 30 minuts</h3>
+            <p data-i18n="step_1_d">Et mostrem WeSleep funcionant amb un rellotge real i parlem del que necessites.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">2</span>
+            <h3 data-i18n="step_2_t">Ho posem en marxa</h3>
+            <p data-i18n="step_2_d">Triem la implementació: app de marca blanca o via API. Els usuaris la configuren en 10 minuts.</p>
+          </li>
+          <li class="step">
+            <span class="step-num">3</span>
+            <h3 data-i18n="step_3_t">30 dies i resultats</h3>
+            <p data-i18n="step_3_d">Revisem junts les dades: quants matins es van despertar descansats i quants en son lleuger.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="pilot-benefits-section">
+      <div class="container">
+        <ul class="pilot-benefits">
+          <li>
+            <strong data-i18n="benefit_1_t">Sense cost</strong>
+            <span data-i18n="benefit_1">Els 30 dies del pilot són gratuïts, sense dades de pagament.</span>
+          </li>
+          <li>
+            <strong data-i18n="benefit_2_t">Producte acabat</strong>
+            <span data-i18n="benefit_2">App Android i API funcionant avui, no un prototip.</span>
+          </li>
+          <li>
+            <strong data-i18n="benefit_3_t">Equip fundador</strong>
+            <span data-i18n="benefit_3">Suport directe de les persones que han construït WeSleep.</span>
+          </li>
+          <li>
+            <strong data-i18n="benefit_4_t">Privacitat</strong>
+            <span data-i18n="benefit_4">Usuaris anònims, servidors a la UE i dades esborrables (RGPD).</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="reserve" id="reserve">
+      <div class="container reserve-grid">
+        <div class="reserve-copy">
+          <span class="eyebrow" data-i18n="reserve_eyebrow">Demo</span>
+          <h2 data-i18n="reserve_title">Reserva la teva demo.</h2>
+          <p data-i18n="reserve_text">Parlem 30 minuts, et mostrem WeSleep en directe i veiem quina implementació encaixa amb la teva organització.</p>
+          <ul class="check-list">
+            <li data-i18n="reserve_b1">WeSleep funcionant amb un rellotge real</li>
+            <li data-i18n="reserve_b2">Marca blanca o API: què et convé</li>
+            <li data-i18n="reserve_b3">Com seria el pilot amb la teva gent</li>
+          </ul>
+          <a class="btn-link reserve-fallback" href="https://calendly.com/bernatmir3/30min" target="_blank" rel="noopener" data-i18n="reserve_fallback">Obrir el calendari en una pestanya nova ›</a>
+        </div>
+        <div class="calendly-box">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/bernatmir3/30min" style="min-width:300px;height:700px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pilot-why">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow" data-i18n="credibility_eyebrow">Per què WeSleep</span>
+          <h2 data-i18n="credibility_title">Recerca de veritat. Producte de veritat.</h2>
+          <p data-i18n="credibility_text">Gairebé 2 anys d'R+D en predicció personalitzada del son. Avui és una app Android i una API en funcionament, provades amb dades reals de rellotge.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pilot-faq">
+      <div class="container faq-wrap">
+        <h2 data-i18n="faq_title">Preguntes freqüents</h2>
+        <div class="faq-list">
+          <details>
+            <summary data-i18n="qa1_q">Què passa quan acabin els 30 dies?</summary>
+            <p data-i18n="qa1_a">Decideixes si vols continuar com a client. Sense permanència ni compromís.</p>
+          </details>
+          <details>
+            <summary data-i18n="qa2_q">Quant triga a estar en marxa?</summary>
+            <p data-i18n="qa2_a">Amb la marca blanca, pocs dies. Via API depèn de la teva app; l'API és petita i està documentada.</p>
+          </details>
+          <details>
+            <summary data-i18n="qa3_q">Necessito targeta de crèdit per començar el pilot?</summary>
+            <p data-i18n="qa3_a">No. El pilot és gratuït i no et demanem dades de pagament.</p>
+          </details>
+          <details>
+            <summary data-i18n="qa4_q">Amb quins wearables funciona?</summary>
+            <p data-i18n="qa4_a">Amb qualsevol rellotge que desi les fases del son a Health Connect (Android). Recomanat: Samsung Galaxy Watch. Provat amb dades reals: Xiaomi Mi Band.</p>
+          </details>
+          <details>
+            <summary data-i18n="qa5_q">Funciona a iPhone?</summary>
+            <p data-i18n="qa5_a">Ara mateix l'app és per a Android. L'iPhone està en el full de ruta.</p>
+          </details>
+          <details>
+            <summary data-i18n="qa6_q">És un producte sanitari?</summary>
+            <p data-i18n="qa6_a">No. WeSleep ofereix valors orientatius de benestar i no fa diagnòstics.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom pilot-footer">
+      <a href="index.html" class="nav-logo"><img class="logo-mark" src="images/logo-wesleep.png" alt="" width="28" height="28" /><span class="logo-word">WeSleep</span></a>
+      <p data-i18n="footer_copyright">© 2026 WeSleep. Tots els drets reservats.</p>
+    </div>
+  </footer>
+
+  <script src="pilot.js"></script>
+</body>
+</html>
