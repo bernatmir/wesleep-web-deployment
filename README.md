@@ -48,9 +48,9 @@ Abre la web desde `http://localhost:3000` y envía el formulario de contacto.
 2. Añade `PRIVATE_DOCUMENTS_DIR` solo si usas una ubicación no predeterminada en local. En producción, el endpoint lee los documentos desde Blob privado.
 3. Para cargar documentos desde este equipo, crea un token de Blob con permisos de lectura y escritura y guárdalo únicamente en `.env` como `BLOB_READ_WRITE_TOKEN`. No lo publiques ni lo subas al repositorio.
 4. Coloca los PDFs disponibles en `../private-documents` usando los nombres definidos en `server.js` y ejecuta `npm run upload:private-pdfs`. El script sube únicamente a `documents/` en el store privado.
-5. Despliega el proyecto en Vercel. El `buildCommand` ejecuta `npm run build`, que prepara los archivos del sitio en `public/`; el build se detiene si encuentra PDFs ahí.
+5. Despliega el proyecto en Vercel. La web está en `public/` y Vercel la sirve directamente. El `buildCommand` (`npm run build`) solo comprueba que no haya PDFs en `public/`.
 
-El store privado necesita estar conectado al mismo proyecto de Vercel donde corre Express. Vercel sirve los assets estáticos desde `public/` y ejecuta Express como una Function; no sirve `express.static()` para esos assets en producción.
+El store privado necesita estar conectado al mismo proyecto de Vercel donde corre Express. Vercel sirve los archivos de `public/` desde su CDN y ejecuta Express como una Function para `/api/*`. Toda la web (HTML, CSS, JS, imágenes) debe estar dentro de `public/`.
 
 ## Dependencias principales
 

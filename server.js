@@ -39,11 +39,19 @@ app.get(['/es/pilot', '/es/pilot.html', '/en/pilot', '/en/pilot.html'], (req, re
   res.redirect(302, `/pilot.html?lang=${language}`);
 });
 
-app.get(['/pilot', '/pilot.html'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'pilot.html'));
+// La web vive en public/. En Vercel la sirve su CDN; estas rutas son el respaldo
+// (y lo que se usa en local con npm start).
+const publicDir = path.join(__dirname, 'public');
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.use(express.static(path.join(__dirname)));
+app.get(['/pilot', '/pilot.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'pilot.html'));
+});
+
+app.use(express.static(publicDir));
 
 app.post('/api/lead-download', async (req, res) => {
   const { email, sector, language } = req.body;

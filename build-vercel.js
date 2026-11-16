@@ -1,34 +1,25 @@
 const fs = require('fs');
 const path = require('path');
 
-const projectDir = __dirname;
-const publicDir = path.join(projectDir, 'public');
-const publicDocumentsDir = path.join(publicDir, 'documents');
-const files = [
-  'api-docs.css',
-  'api-documentation.html',
-  'index.html',
-  'pilot.css',
-  'pilot.html',
-  'pilot.js',
-  'script.js',
-  'styles.css',
-];
+// La web ya está en public/ (Vercel la sirve tal cual).
+// Este paso solo comprueba que no se publique ningún PDF privado por error.
+const publicDir = path.join(__dirname, 'public');
 
-fs.mkdirSync(publicDir, { recursive: true });
-
-if (fs.existsSync(publicDocumentsDir)) {
-  const publicPdfs = fs.readdirSync(publicDocumentsDir).filter((file) => file.toLowerCase().endsWith('.pdf'));
-  if (publicPdfs.length > 0) {
-    throw new Error('PDFs found in public/documents. Move them to private-documents or upload them to private Blob.');
-  }
+function findPdfs(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return findPdfs(full);
+    return entry.name.toLowerCase().endsWith('.pdf') ? [full] : [];
+  });
 }
 
-for (const file of files) {
-  fs.copyFileSync(path.join(projectDir, file), path.join(publicDir, file));
+const pdfs = findPdfs(publicDir);
+if (pdfs.length > 0) {
+  throw new Error(`PDFs found in public/: ${pdfs.join(', ')}. Keep them in private-documents or private Blob.`);
 }
 
-fs.copyFileSync(path.join(projectDir, 'Favicon.ico'), path.join(publicDir, 'favicon.ico'));
-fs.cpSync(path.join(projectDir, 'images'), path.join(publicDir, 'images'), { recursive: true });
+if (!fs.existsSync(path.join(publicDir, 'index.html'))) {
+  throw new Error('public/index.html is missing.');
+}
 
-console.log(`Prepared ${files.length + 1} static files and images in public/.`);
+console.log('public/ is ready: no PDFs found.');
